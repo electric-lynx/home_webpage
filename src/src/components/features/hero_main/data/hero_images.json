@@ -1,0 +1,13 @@
+{
+  "image_widths": {
+    "media_xl": "1280w",
+    "media_lg": "1024w",
+    "media_md": "768w",
+    "media_sm": "512w"
+  },
+  "neonReleaseLogo": {
+    "id": 100,
+    "source_xs": "images/logos/initial_logo-neon.png",
+    "alt_text": "logo neon outline"
+  }
+}

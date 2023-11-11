@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { HeroMain } from "../components/features";
+---
+
+<Layout title="Electric Lynx LLC">
+  <main class="landing_page_layout">
+    <HeroMain />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: calc(100% - 2rem);
+    color: white;
+    line-height: 1.6;
+  }
+  .landing_page_layout {
+    display: grid;
+    place-items: center;
+  }
+</style>
