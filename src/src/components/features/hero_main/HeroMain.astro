@@ -6,20 +6,12 @@ import { Text, Image } from "../../global";
 <Text tag="h1" cssUtil={["neon", "heading"]}>
   Electric Lynx <Text cssUtil={["flicker", "neon"]}>LLC</Text>
 </Text>
-<Text tag="h2" cssUtil={["centered"]}>Dropping in 2023</Text>
-
-<Image
-  imgType={hero_images.neonReleaseLogo}
-  image_sizes={hero_images.image_widths}
-/>
-<Text tag="h2" cssUtil={["centered"]}>Modern Web Developement Company</Text>
-<div class="container">
-  <Text tag="p">
-    At Electric Lynx, we specialize in infusing modern web technology to give
-    your website a cutting-edge and compelling look. Our mission is to redefine
-    digital experiences, ensuring your business stands out in the digital
-    landscape.
-  </Text>
+<div class="hero_container">
+  <Image
+    imgType={hero_images.neonReleaseLogo}
+    image_sizes={hero_images.image_widths}
+  />
+  <Text tag="p" cssUtil={["centered"]}>Dropping in 2023</Text>
 </div>
 
 <style>
@@ -27,6 +19,10 @@ import { Text, Image } from "../../global";
     .container {
       width: 75%;
     }
+  }
+  .hero_container {
+    max-width: 600px;
+    color: var(--electric_orange);
   }
   .subtitle_bold {
     font-size: 2em;

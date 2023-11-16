@@ -1,23 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+import { Text, Link } from "../components/global";
 import { HeroMain } from "../components/features";
 ---
 
 <Layout title="Electric Lynx LLC">
   <main class="landing_page_layout">
     <HeroMain />
+
+    <Text tag="h2" cssUtil={["centered"]}>Modern Web Developement Agency</Text>
+    <div class="container">
+      <Text tag="p">
+        At Electric Lynx, we specialize in infusing modern web technology to
+        give your website a cutting-edge and compelling look. Our mission is to
+        redefine digital experiences, ensuring your business stands out in the
+        digital landscape.
+      </Text>
+    </div>
+    <Link linkTo="hello@electriclynx.com">hello@electriclynx.com</Link>
+
+    <style>
+      main {
+        max-width: calc(100% - 2rem);
+        color: white;
+        line-height: 1.6;
+      }
+      .landing_page_layout {
+        display: grid;
+        place-items: center;
+      }
+    </style>
   </main>
 </Layout>
-
-<style>
-  main {
-    max-width: calc(100% - 2rem);
-    color: white;
-    line-height: 1.6;
-  }
-  .landing_page_layout {
-    display: grid;
-    place-items: center;
-  }
-</style>
