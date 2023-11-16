@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Text, Link } from "../components/global";
 import { HeroMain } from "../components/features";
+import { EmailIcon } from "../components/svg";
 ---
 
 <Layout title="Electric Lynx LLC">
@@ -17,7 +18,10 @@ import { HeroMain } from "../components/features";
         digital landscape.
       </Text>
     </div>
-    <Link linkTo="hello@electriclynx.com">hello@electriclynx.com</Link>
+    <Text>Drop us a line @</Text>
+    <Link linkTo="mailto:hello@electriclynx.com" cssUtil={["baselink-icon"]}>
+      <EmailIcon /> hello@electriclynx.com
+    </Link>
 
     <style>
       main {
