@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/elements/Footer.astro";
+import Header from "../components/elements/Header.astro";
 import Navbar from "../components/elements/Navbar.astro";
 
 export interface Props {
@@ -24,7 +25,10 @@ const { title } = Astro.props;
     />
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
+    <Header />
+  <div class="fixed bottom-10 z-50 left-0 w-full bg-gray-800 text-white p-4">
     <Navbar />
+  </div>
     <slot />
     <Footer />
   </body>
