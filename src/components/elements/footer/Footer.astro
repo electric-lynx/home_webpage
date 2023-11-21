@@ -3,91 +3,7 @@ import GroupFooterNav from "../../blocks/GroupFooterNav.astro";
 import { LinkSVG, Container, FooterNav, Paragraph } from "../../shared";
 import { FacebookIcon, LinkinIcon, TwitterXICon, GitHubIcon } from "../../svg";
 import FooterContainer from "./components/FooterContainer.astro";
-
-const footerNav1 = [
-  {
-    itemText: "Marketing",
-    itemLink: "#",
-  },
-  {
-    itemText: "Analylitics",
-    itemLink: "#",
-  },
-  {
-    itemText: "Commerce",
-    itemLink: "#",
-  },
-  {
-    itemText: "Insights",
-    itemLink: "#",
-  },
-];
-
-const footerSupport = [
-  {
-    itemText: "Pricing",
-    itemLink: "#",
-  },
-  {
-    itemText: "Guides",
-    itemLink: "#",
-  },
-  {
-    itemText: "FAQ",
-    itemLink: "#",
-  },
-  {
-    itemText: "Contact",
-    itemLink: "#",
-  },
-];
-
-const footerCompany = [
-  {
-    itemText: "About",
-    itemLink: "/about",
-  },
-  {
-    itemText: "Blog",
-    itemLink: "#",
-  },
-  {
-    itemText: "Jobs",
-    itemLink: "#",
-  },
-  {
-    itemText: "Parteners",
-    itemLink: "#",
-  },
-  {
-    itemText: "Jobs",
-    itemLink: "#",
-  },
-];
-const footerLegal = [
-  {
-    itemText: "Claim",
-    itemLink: "/#",
-  },
-  {
-    itemText: "Privacy",
-    itemLink: "#",
-  },
-  {
-    itemText: "Terms",
-    itemLink: "#",
-  },
-];
-
-// <footer>
-//   micro-animations
-//   <div>final word/</div>
-
-//   <div>logo</div>
-//   <div>contact infromation / inqueries</div>
-//   <div>location</div>
-//   <div>all rights reserved sitemap</div>
-// </footer>
+import { footerCompany, footerNav1 } from "./data/links.js";
 ---
 
 <div class="mt-16"></div>
@@ -102,22 +18,11 @@ const footerLegal = [
       <div class="col-span-2 lg:col-span-1 h-auto flex flex-col">
         <div class="h-full">
           <a href="#" class="relative flex items-center gap-3">
-            <div class="relative w-7 h-7 overflow-hidden flex rounded-xl">
-              <span
-                class="absolute w-4 h-4 -top-1 -right-1 bg-green-500 rounded-md rotate-45"
-              ></span>
-              <span
-                class="absolute w-4 h-4 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"
-              ></span>
-              <span
-                class="absolute w-4 h-4 -bottom-1 -left-1 bg-primary rounded-md rotate-45"
-              ></span>
-              <span
-                class="absolute w-2 h-2 rounded-full bg-heading-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              ></span>
-            </div>
-            <div class="inline-flex text-lg font-semibold text-heading-1">
-              THE LYNX!!!
+            <div class="relative h-12 overflow-hidden flex rounded-xl">
+              <img
+                src="./logos/electriclynxlogo.png"
+                alt="electric lynx logo"
+              />
             </div>
           </a>
           <Paragraph className={"mt-8"}>
@@ -145,12 +50,9 @@ const footerLegal = [
 
       <GroupFooterNav>
         <FooterNav title={"Company"} navItems={footerCompany} />
-        <FooterNav title={"Solutions"} navItems={footerNav1} />
       </GroupFooterNav>
-
       <GroupFooterNav>
-        <FooterNav title={"Support"} navItems={footerSupport} />
-        <FooterNav title={"Ressources"} navItems={footerLegal} />
+        <FooterNav title={"Solutions"} navItems={footerNav1} />
       </GroupFooterNav>
     </div>
   </Container>
