@@ -4,5 +4,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 
     site: 'https://electriclynx.com',
-    base: '/home_webpage/src'
+    base: '/'
 });
