@@ -1,0 +1,27 @@
+---
+const { imgType, image_sizes } = Astro.props;
+
+// need the smallest size image to be shipe
+const defaultImage = imgType.source_xs;
+---
+
+<img
+  loading="lazy"
+  src={defaultImage}
+  srcset={`
+   ${imgType?.source_sm || defaultImage} ${image_sizes.media_sm},
+   ${imgType?.source_md || defaultImage} ${image_sizes.media_md},
+   ${imgType?.source_lg || defaultImage} ${image_sizes.media_lg},
+   ${imgType?.source_xl || defaultImage} ${image_sizes.media_xl},
+  `}
+  alt={imgType.alt_text}
+/>
+
+<style>
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    overflow: hidden;
+  }
+</style>

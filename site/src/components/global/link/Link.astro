@@ -1,0 +1,40 @@
+---
+const { linkTo = "\\", cssUtil = [], varient } = Astro.props;
+
+const slottedText = linkTo === "\\" ? `HOME` : `${linkTo}`; // if nothing gets slotted then will default to linkTo
+---
+
+<a href={linkTo} class:list={["baselink", ...cssUtil]}>
+  <slot> {slottedText}</slot>
+  <style>
+    .baselink {
+    }
+  </style>
+</a>
+<style>
+  .baselink-icon{
+    display: flex;
+    align-items: center;
+  }
+
+  .baselink {
+
+    font-size: 1.5rem;
+    text-shadow: none;
+    color: white;
+    transition: text-shadow 0.25s ease-out;
+  }
+  .baselink:hover {
+    color: white;
+    font-weight: 500;
+    text-shadow: var(--text-shadow-neon-green-glow);
+    transition: all 0.25s ease-out;
+  }
+  .baselink:active {
+    color: #000;
+  }
+  .baselink:focus {
+    padding:10px
+    outline: solid;
+  }
+</style>
