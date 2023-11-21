@@ -48,11 +48,12 @@ import { footerCompany, footerNav1 } from "./data/links.js";
         </div>
       </div>
 
-      <GroupFooterNav>
-        <FooterNav title={"Company"} navItems={footerCompany} />
-      </GroupFooterNav>
-      <GroupFooterNav>
-        <FooterNav title={"Solutions"} navItems={footerNav1} />
+      <GroupFooterNav varient="singleRow">
+        <FooterNav
+          title={"Company"}
+          navItems={footerCompany}
+          varient="singleRow"
+        />
       </GroupFooterNav>
     </div>
   </Container>

@@ -43,20 +43,12 @@ export const footerCompany = [
   },
   {
     itemText: "Contact",
-    itemLink: "#",
+    itemLink: "/contact",
   },
   {
-    itemText: "Jobs",
-    itemLink: "#",
-  },
-  {
-    itemText: "Parteners",
-    itemLink: "#",
-  },
-  {
-    itemText: "Jobs",
-    itemLink: "#",
-  },
+    itemText: "Inquires",
+    itemLink: "/inquires",
+  }
 ];
 export const footerLegal = [
   {
