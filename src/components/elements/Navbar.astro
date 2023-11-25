@@ -1,50 +1,38 @@
 ---
 import BtnLink from "../shared/BtnLink.astro";
 import Container from "../shared/Container.astro";
-import  Navitem from "../shared/Navitem.astro";
 
-const navItems = [
-    {
-        href:"#",
-        text:"Home"
-    },
-    {
-        href:"#services",
-        text:"Services"
-    },
-    {
-        href:"#about-us",
-        text:"About us"
-    },
-    {
-        href:"#features",
-        text:"Features"
-    },
-]
+import { IconButton } from '@chakra-ui/react'
+import { HiHome, HiClipboard, HiUser, HiTag, HiMail } from "react-icons/hi";
+
+const icons = [
+  { icon: HiHome, sectionId: '' },
+  { icon: HiClipboard, sectionId: 'services' },
+  { icon: HiUser, sectionId: 'about-us' },
+  { icon: HiTag, sectionId: 'pricing' },
+  { icon: HiMail, sectionId: 'contact' },
+];
+
 ---
-
+<span class="md:hidden lg:hidden">
     <Container>
-        <nav class="w-full flex justify-between gap-6 relative">
-            <!-- logo -->
-            <div class="min-w-max inline-flex relative">
-                <a href="/" class="relative flex items-center gap-3">
-                    <div class="relative w-30 h-14 overflow-hidden flex rounded-xl">
-                        NAVBAR
+        <nav class="navbar fixed bottom-10 w-50 l-50 left-1/2 transform -translate-x-1/2 p-4 rounded-lg z-50 border-2 border-black ">
+            <div class="flex flex-row items-center space-x-4">
+                {icons.map((item, index) => (
+                    <div key={index} class="p-1 hover:scale-110 transition-opacity border border-transparent hover:opacity-50 hover:rounded-full hover:border hover:border-black">
+                        <a href={`#${item.sectionId}`}>
+                            <item.icon size={30} />
+                        </a>
                     </div>
-                </a>
-            </div>
-
-            <div data-navbar class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0">
-                <ul class="border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-center lg:items-center">
-                    {navItems.map(item=>{
-                        return <Navitem {...item}/>
-                    })
-                    }
-                </ul>
-
-                <div class="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0">
-                    <BtnLink text="Get Started" href="#cta" className="flex justify-center w-full sm:w-max" variant="primary"/>
-                </div>
+                  ))}
             </div>
         </nav>
     </Container>
+<span>
+<style>
+.navbar{
+    background-color: #FFE9D0;
+    opacity: .8;
+}
+</style>
+

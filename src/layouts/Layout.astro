@@ -1,4 +1,7 @@
 ---
+//UI component provider
+import { ChakraProvider } from '@chakra-ui/react'
+
 import Footer from "../components/elements/Footer.astro";
 import Header from "../components/elements/Header.astro";
 import Navbar from "../components/elements/Navbar.astro";
@@ -15,7 +18,7 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Electric Lynx - crafting attractive + performant websites">
     <title>Electric Lynx {title}</title>
@@ -24,14 +27,16 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
   </head>
-  <body class="overflow-hidden overflow-y-auto bg-body">
-    <Header />
-  <div class="fixed bottom-10 z-50 left-0 w-full bg-gray-800 text-white p-4">
-    <Navbar />
-  </div>
-    <slot />
-    <Footer />
-  </body>
+
+    <body class="overflow-hidden overflow-y-auto bg-body">
+      <ChakraProvider>
+        <Header />
+        <Navbar />
+        <slot />
+        <Footer />
+      </ChakraProvider>
+    </body>
+
   <script>
     const switchTheme = document.querySelector(
       "[data-switch-theme]"
@@ -72,48 +77,6 @@ const { title } = Astro.props;
       });
     }
   </script>
-  <script>
-    const toggleMenu = document.querySelector(
-      "[data-toggle-nav]"
-    ) as HTMLButtonElement;
-    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
-    const overlayNav = document.querySelector(
-      "[data-nav-overlay]"
-    ) as HTMLDivElement;
-    if (toggleMenu) {
-      toggleMenu.addEventListener("click", e => {
-        e.preventDefault();
-        if (toggleMenu.getAttribute("data-open-nav") === "false") {
-          toggleMenu.setAttribute("data-open-nav", "true");
-          overlayNav.setAttribute("data-is-visible", "true");
-          document.body.classList.add("!overflow-y-hidden");
-		  navbar.style.height = `${navbar.scrollHeight}px`
-
-        }else{
-			toggleMenu.setAttribute("data-open-nav", "false");
-        	overlayNav.setAttribute("data-is-visible", "false");
-        	document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
-		}
-		
-        
-      });
-
-      navbar.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
-      });
-
-      overlayNav.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        	overlayNav.setAttribute("data-is-visible", "false");
-        	document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
-      });
-    }
-  </script>
 </html>
 <style is:global>
   :root {
@@ -144,22 +107,5 @@ const { title } = Astro.props;
   }
   body {
     font-family: "Raleway", sans-serif;
-  }
-
-  [data-toggle-nav][data-open-nav="true"] #line1 {
-    transform: translateY(0.375rem) rotate(40deg);
-  }
-  [data-toggle-nav][data-open-nav="true"] #line2 {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-  [data-toggle-nav][data-open-nav="true"] #line3 {
-    transform: translateY(-0.375rem) rotate(-40deg);
-  }
-
-  
-  [data-nav-overlay][data-is-visible="true"] {
-    visibility: visible;
-    display: flex;
   }
 </style>
