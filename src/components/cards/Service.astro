@@ -1,5 +1,7 @@
 ---
 import Paragraph from '../shared/Paragraph.astro';
+import { HiPuzzle, HiOutlineSearch, HiOutlineDeviceMobile, HiOutlineShieldExclamation, HiCubeTransparent, HiCursorClick } from "react-icons/hi";
+import { IconType } from "react-icons";
 
 export interface Props{
     title:string,
@@ -7,19 +9,30 @@ export interface Props{
     icon: string
 }
 
+const icons:Record<string, IconType> = {
+      'puzzle': HiPuzzle,
+      'magnifyingglass': HiOutlineSearch,
+      'mobilephone': HiOutlineDeviceMobile,
+      'securityshield': HiOutlineShieldExclamation,
+      'transparentcube': HiCubeTransparent,
+    };
+
+
 const {title, description, icon} = Astro.props
+    
+const IconComponent = icons[icon] || HiCursorClick; 
+
 ---
 <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
     <div class="rounded-xl bg-gray-300 dark:bg-gray-950 p-3 text-heading-1 w-max relative">
-            <slot set:html={icon} />
+    <IconComponent size={24} /> 
     </div>
     <div class="mt-6 space-y-4 relative">
-        <h2 class="text-lg md:text-xl font-semibold text-heading-2">
-            {title}
-        </h2>
-        <Paragraph>
-            {description}
-        </Paragraph>
+    <h2 class="text-lg md:text-xl font-semibold text-heading-2">
+        {title}
+    </h2>
+    <Paragraph>
+        {description}
+    </Paragraph>
     </div>
-    <span class="absolute w-32 aspect-square -bottom-16 -right-16 bg-primary/10 rounded-full"></span>
 </div>
