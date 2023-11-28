@@ -1,71 +1,36 @@
 ---
 import GroupFooterNav from "../../blocks/GroupFooterNav.astro";
-import { LinkSVG, Container, FooterNav, Paragraph } from "../../shared";
-import { FacebookIcon, LinkinIcon, TwitterXICon, GitHubIcon } from "../../svg";
+import { Container, FooterNav, Paragraph } from "../../shared";
+
 import FooterContainer from "./components/FooterContainer.astro";
-import { footerCompany, footerNav1 } from "./data/links.js";
+import { footerCompany } from "./data/links.js";
 ---
 
-<div class="mt-16"></div>
 <FooterContainer>
-  <Container className="pb-8 relative overflow-hidden">
-    <span
-      class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-20 w-24 h-16 sm:w-48 sm:h-36 rounded-full rotate-12 skew-x-6 bg-primary"
-    ></span>
-    <div
-      class="grid grid-cols-2 lg:grid-cols-3 lg:items-stretch gap-8 relative"
-    >
-      <div class="col-span-2 lg:col-span-1 h-auto flex flex-col">
-        <div class="h-full">
-          <a href="#" class="relative flex items-center gap-3">
-            <div class="relative h-12 overflow-hidden flex rounded-xl">
-              <img
-                src="./logos/electriclynxlogo.png"
-                alt="electric lynx logo"
-              />
-            </div>
-          </a>
-          <Paragraph className={"mt-8"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
-            maiores nam doloribus id magni
-          </Paragraph>
-        </div>
-
-        <!-- social links -->
-        <div class="min-h-max flex items-center gap-4 text-heading-3 mt-8">
-          <LinkSVG>
-            <FacebookIcon />
-          </LinkSVG>
-          <LinkSVG>
-            <TwitterXICon />
-          </LinkSVG>
-          <LinkSVG>
-            <LinkinIcon />
-          </LinkSVG>
-          <LinkSVG>
-            <GitHubIcon />
-          </LinkSVG>
-        </div>
+  <Container className="pb-8 relative overflow-hidden pb-36 ">
+    <a href="#" class="relative flex items-center gap-3">
+      <div class="relative h-12 overflow-hidden flex rounded-xl">
+        <img src="./logos/electriclynxlogo.png" alt="electric lynx logo" />
       </div>
+    </a>
 
-      <GroupFooterNav varient="singleRow">
-        <FooterNav
-          title={"Company"}
-          navItems={footerCompany}
-          varient="columns"
-        />
-      </GroupFooterNav>
+    <div class="h-full">
+      <Paragraph className={"mt-8"}>
+        At Electric Lynx, our mission is to elevate your business reach and
+        streamline daily operations by deploying advanced technologies. We
+        specialize in optimizing your digital footprint to ensure a seamless and
+        efficient online experience, propelling your business towards greater
+        success.
+      </Paragraph>
     </div>
   </Container>
-  <div class="bg-gradient-to-tl from-box-bg py-2 relative">
-    <Container>
-      <div
-        class="flex justify-between items-center gap-6 md:text-lg text-heading-3"
-      >
-        <div>
-          &copy; <span id="year"></span> Electric Lynx. All right reserved
-        </div>
+  <Container>
+    <div
+      class="flex justify-between items-center gap-6 md:text-lg text-heading-3"
+    >
+      <div>
+        &copy; <span id="year"></span> Electric Lynx. All right reserved
       </div>
-    </Container>
-  </div>
+    </div>
+  </Container>
 </FooterContainer>
