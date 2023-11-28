@@ -1,6 +1,6 @@
 ---
 import GroupFooterNav from "../../blocks/GroupFooterNav.astro";
-import { Container, FooterNav, Paragraph } from "../../shared";
+import { Container, Paragraph, BtnLink } from "../../shared";
 
 import FooterContainer from "./components/FooterContainer.astro";
 import { footerCompany } from "./data/links.js";
@@ -22,6 +22,13 @@ import { footerCompany } from "./data/links.js";
         efficient online experience, propelling your business towards greater
         success.
       </Paragraph>
+      <div class="flex justify-center mt-4">
+        <BtnLink
+          variant="secondary"
+          text="hello@electriclynx.com"
+          href="mailto:hello@electriclynx.com"
+        />
+      </div>
     </div>
   </Container>
   <Container>
