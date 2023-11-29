@@ -3,11 +3,35 @@ import Container from "../../shared/Container.astro";
 import Paragraph from "../../shared/Paragraph.astro";
 import Title from "../../shared/Title.astro";
 import { ImageContact, ContactForm } from "./components/";
+
+import Button from "../../shared/Button.astro";
+
+import Label from "./components/Label.astro";
+
+const baseStyle =
+  "peer w-full border-b border-primary bg-transparent pt-4 pb-1.5 outline outline-0 transition-all ";
+const fontStyle = "font-sans text-sm font-normal text-primary";
+const disable = "disabled:border-0 disabled:bg-primary";
+const focus = "focus:outline-0  focus:border-primary focus:border-0";
+const placeHolder = "placeholder-shown:border-primary";
 ---
 
 <section id="contact" class="min:h-80 mb-12">
-  <Container className="flex flex-col md:flex-row gap-10 lg:gap-12">
-    <div class="flex flex-col lg:w-1/2">
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div
+      class="max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto"
+    >
+      <div class="w-full h-80 sm:h-96 midmd:h-full relative">
+        <img
+          src={"/images/dev-with-c-1.webp"}
+          alt="banner image"
+          width="1240"
+          height="1385"
+          class="w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full"
+        />
+      </div>
+    </div>
+    <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
       <Title>Contact Us</Title>
       <Paragraph className="mt-8">
         Discover the possibilities for your business or share your existing site
@@ -18,8 +42,46 @@ import { ImageContact, ContactForm } from "./components/";
         considering Electric Lynx - we look forward to the opportunity to
         enhance your digital success
       </Paragraph>
+      <div class="mt-10 w-full flex max-w-md mx-auto lg:mx-0">
+        <div class="flex sm:flex-row flex-col gap-5 w-full">
+          <form
+            action="#"
+            class="py-1 pl-6 w-full pr-1 flex flex-col gap-3 items-center text-heading-3
+                       border-box-border rounded ease-linear focus-within:bg-body focus-within:border-primary pt-8"
+          >
+            <Label>
+              <input
+                slot="labelInput"
+                placeholder="johndoe@gmail.com"
+                class:list={[baseStyle, fontStyle, disable, focus, placeHolder]}
+              />
+               Email
+            </Label>
+            <Label>
+              <textarea
+                slot="labelInput"
+                placeholder="Static"
+                rows="5"
+                class:list={[
+                  baseStyle,
+                  fontStyle,
+                  disable,
+                  focus,
+                  placeHolder,
+                  " resize-none disabled:resize-none ",
+                ]}></textarea>
+               Message
+            </Label>
+            <Button variant={"primary"} className={"min-w-max text-white"}>
+              <span class="sm:flex relative z-[5]"> Send</span>
+            </Button>
+          </form>
+        </div>
+      </div>
     </div>
-
-    <ContactForm />
+    <div
+      class="pt-8 grid grid-cols-2 items-center gap-4 max-w-3xl md:max-w-[none]"
+    >
+    </div>
   </Container>
 </section>
