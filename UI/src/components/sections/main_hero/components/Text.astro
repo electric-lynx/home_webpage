@@ -1,0 +1,27 @@
+---
+export interface Props {
+  tag: string;
+  className?: string;
+}
+interface StyleBank {
+  [key: string]: string;
+  h1: string;
+  sub: string;
+  p: string;
+}
+
+const { tag, className = "" } = Astro.props;
+
+let Elements = tag || "div";
+let classTails = className || "";
+
+const styleBank: StyleBank = {
+  h1: "font-black text-4xl lg:text-6xl ",
+  sub: "font-bold text-xl lg:text-2xl",
+  p: "text-md lg:text-lg ",
+};
+---
+
+<Elements class:list={[`text-heading-3`, styleBank?.[tag], classTails]}>
+  <slot />
+</Elements>
