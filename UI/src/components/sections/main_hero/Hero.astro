@@ -4,22 +4,19 @@ import { Container, Button } from "../../shared";
 import { Text, LogoHead } from "./components";
 ---
 
-<section class="pt-32 lg:pt-36">
-  <Container className="hero_layout-sm">
+<section class="pt-5">
+  <Container className="flex flex-col items-center justify-center gap-4">
+    <div class="flex w-32">
+      <LogoHead />
+    </div>
     <Text tag="h1">Electric Lynx Web masters for your business</Text>
 
-    <LogoHead />
     <Text tag="sub">
-      Linking together the pieces of the web to electrify your business forward
-      and dominate the web space
+      Linking together the pieces of the web to electrify your business.
     </Text>
     <div>
       <Text tag="p">
         Send us your current website and find out what we can do for you.
-      </Text>
-      <Text tag="p">
-        Don't got one... Reach out and let us figure out what is the best
-        solution for your web presence
       </Text>
 
       <Button
@@ -30,7 +27,7 @@ import { Text, LogoHead } from "./components";
         <span class="sm:flex relative z-[5]"> Reach Out</span>
         <svg
           width="182"
-          height="31"
+          height="15"
           viewBox="0 0 182 31"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,6 +38,10 @@ import { Text, LogoHead } from "./components";
             stroke-width="3"></path>
         </svg>
       </Button>
+      <Text tag="p">
+        Don't got one... Reach out and let us figure out what is the best
+        solution for your web presence
+      </Text>
     </div>
   </Container>
 </section>
