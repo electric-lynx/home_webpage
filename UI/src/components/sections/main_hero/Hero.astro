@@ -1,30 +1,25 @@
 ---
 import { Container, Button } from "../../shared";
 
-import { Text, LogoHead } from "./components";
+import { Text, LogoHead, CTAButton, HeroBackground } from "./components";
 ---
 
-<section class="pt-5">
-  <Container className="flex flex-col items-center justify-center gap-4">
-    <div class="flex w-32">
-      <LogoHead />
-    </div>
+<section class:list={["pt-20"]}>
+  <Container className="flex gap-6 flex-col justify-center text-center ">
     <Text tag="h1">Electric Lynx Web masters for your business</Text>
 
     <Text tag="sub">
       Linking together the pieces of the web to electrify your business.
     </Text>
-    <div>
+
+    <div class="mt-20 flex gap-8 flex-col">
       <Text tag="p">
         Send us your current website and find out what we can do for you.
       </Text>
+      <HeroBackground />
 
-      <Button
-        variant={"primary"}
-        className={"min-w-max text-white"}
-        navigateTo={"#contact"}
-      >
-        <span class="sm:flex relative z-[5]"> Reach Out</span>
+      <CTAButton variant={"primary"} className={""} navigateTo={"#contact"}>
+        <span class="bolder"> Reach Out</span>
         <svg
           width="182"
           height="15"
@@ -37,7 +32,7 @@ import { Text, LogoHead } from "./components";
             stroke="#F08D27"
             stroke-width="3"></path>
         </svg>
-      </Button>
+      </CTAButton>
       <Text tag="p">
         Don't got one... Reach out and let us figure out what is the best
         solution for your web presence
@@ -50,5 +45,8 @@ import { Text, LogoHead } from "./components";
   .hero_layout-sm {
     display: grid;
     grid-template-areas: "logo mainTitle subTitle callActions";
+  }
+  .hero_background {
+    background-image: url("./components//svgs/lynxbg.svg");
   }
 </style>
