@@ -1,8 +1,8 @@
 ---
+import { Footer } from "../components/elements";
 //UI component provider
 import { ChakraProvider } from "@chakra-ui/react";
 
-import Footer from "../components/elements/Footer.astro";
 import Header from "../components/elements/Header.astro";
 import Navbar from "../components/elements/Navbar.astro";
 
@@ -38,10 +38,12 @@ const { title } = Astro.props;
   </head>
 
   <body class="overflow-hidden overflow-y-auto bg-body">
-    <Header />
-    <Navbar />
-    <slot />
-    <Footer />
+    <ChakraProvider>
+      <Header />
+      <Navbar />
+      <slot />
+      <Footer />
+    </ChakraProvider>
   </body>
 
   <script>

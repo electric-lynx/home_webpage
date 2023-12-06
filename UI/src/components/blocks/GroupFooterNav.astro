@@ -1,3 +1,12 @@
-<div class="grid md:grid-cols-2 gap-8 h-max">
-    <slot/>
+---
+const { varient } = Astro.props;
+
+const styles = {
+  singleRow: "flex",
+  multiColumn: "grid md:grid-cols-2 gap-8",
+};
+---
+
+<div class:list={["h-max", styles.singleRow]}>
+  <slot />
 </div>

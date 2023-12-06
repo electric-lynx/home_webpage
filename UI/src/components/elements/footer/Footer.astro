@@ -1,0 +1,43 @@
+---
+import GroupFooterNav from "../../blocks/GroupFooterNav.astro";
+import { Container, Paragraph, BtnLink } from "../../shared";
+
+import FooterContainer from "./components/FooterContainer.astro";
+import { footerCompany } from "./data/links.js";
+---
+
+<FooterContainer>
+  <Container className="pb-8 relative overflow-hidden pb-36 ">
+    <a href="#" class="relative flex md:w-1/4">
+      <div class="relative h-12 overflow-hidden flex rounded-xl">
+        <img src="./logos/electriclynxlogo.png" alt="electric lynx logo" />
+      </div>
+    </a>
+
+    <div class="h-full">
+      <Paragraph className={"mt-8"}>
+        At Electric Lynx, our mission is to elevate your business reach and
+        streamline daily operations by deploying advanced technologies. We
+        specialize in optimizing your digital footprint to ensure a seamless and
+        efficient online experience, propelling your business towards greater
+        success.
+      </Paragraph>
+      <div class="flex justify-center mt-4">
+        <BtnLink
+          variant="secondary"
+          text="hello@electriclynx.com"
+          href="mailto:hello@electriclynx.com"
+        />
+      </div>
+    </div>
+  </Container>
+  <Container>
+    <div
+      class="flex justify-between items-center gap-6 md:text-lg text-heading-3 mt-24 md:mt-0"
+    >
+      <div>
+        &copy; <span id="year"></span> Electric Lynx. All right reserved
+      </div>
+    </div>
+  </Container>
+</FooterContainer>

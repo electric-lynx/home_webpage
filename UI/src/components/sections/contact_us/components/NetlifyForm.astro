@@ -1,0 +1,69 @@
+---
+import Button from "../../../shared/Button.astro";
+
+import Label from "./Label.astro";
+
+const baseStyle =
+  "peer w-full border-b border-primary bg-transparent pt-4 pb-1.5 outline outline-0 transition-all ";
+const fontStyle = "font-sans text-sm font-normal text-primary";
+const disable = "disabled:border-0 disabled:bg-primary";
+const focus = "focus:outline-0  focus:border-primary focus:border-0";
+const placeHolder = "placeholder-shown:border-primary";
+---
+
+<div class="flex sm:flex-row flex-col gap-5 w-full">
+  <form
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    class="py-1 pl-6 w-full pr-1 flex flex-col gap-3 items-center text-heading-3
+                 border-box-border rounded ease-linear focus-within:bg-body focus-within:border-primary pt-8"
+  >
+    <Label>
+      <input
+        slot="labelInput"
+        type="text"
+        name="client_name"
+        placeholder="Frist, Last"
+        class:list={[baseStyle, fontStyle, disable, focus, placeHolder]}
+      />
+       Name
+    </Label>
+
+    <Label>
+      <input
+        slot="labelInput"
+        type="text"
+        name="client_email"
+        placeholder="johndoe@gmail.com"
+        class:list={[baseStyle, fontStyle, disable, focus, placeHolder]}
+      />
+       Email
+    </Label>
+
+    <Label>
+      <textarea
+        slot="labelInput"
+        rows="5"
+        class:list={[
+          baseStyle,
+          fontStyle,
+          disable,
+          focus,
+          placeHolder,
+          " resize-none disabled:resize-none ",
+        ]}></textarea>
+
+       Message
+    </Label>
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
+    <Button variant={"secondary"} className={""}>
+      <span class="sm:flex relative z-[5]"> Send</span>
+    </Button>
+  </form>
+</div>
