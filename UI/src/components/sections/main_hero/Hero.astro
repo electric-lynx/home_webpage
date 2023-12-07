@@ -1,24 +1,23 @@
 ---
 import { Container, Button } from "@components/shared";
 
-import { Text, LogoHead, CTAButton, HeroBackground } from "./components";
+import { Text, CTAButton, BizTitle } from "./components";
 ---
 
-<section class:list={["pt-20"]}>
+<section class:list={["pt-20", "hero_layout"]}>
   <Container className="flex gap-6 flex-col justify-center text-center ">
-    <Text tag="h1">Electric Lynx Web masters for your business</Text>
-
+    <BizTitle />
     <Text tag="sub">
-      Linking together the pieces of the web to electrify your business.
+      Web masters for your business, We Linking together the pieces of the web
+      to electrify your business.
     </Text>
 
     <div class="mt-20 flex gap-8 flex-col">
       <Text tag="p">
         Send us your current website and find out what we can do for you.
       </Text>
-      <HeroBackground />
 
-      <CTAButton variant={"primary"} className={""} navigateTo={"#contact"}>
+      <CTAButton variant={"primary"} className={""} navigateTo={"./contact-us"}>
         <span class="bolder"> Reach Out</span>
         <svg
           width="182"
@@ -33,20 +32,35 @@ import { Text, LogoHead, CTAButton, HeroBackground } from "./components";
             stroke-width="3"></path>
         </svg>
       </CTAButton>
-      <Text tag="p">
-        Don't got one... Reach out and let us figure out what is the best
-        solution for your web presence
-      </Text>
     </div>
   </Container>
 </section>
 
 <style>
-  .hero_layout-sm {
-    display: grid;
-    grid-template-areas: "logo mainTitle subTitle callActions";
+  .hero_title {
   }
-  .hero_background {
-    background-image: url("./components//svgs/lynxbg.svg");
+  .hero_layout {
+    --hero_grid_layout: "logo mainTitle subTitle callActions";
+    display: grid;
+    grid-template-areas: var(--hero_grid_layout);
+    height: 85vh;
+  }
+  @media screen and (min-width: 640px) {
+    /* tablet  */
+    .hero_layout {
+      --hero_grid_layout: "logo mainTitle subTitle callActions";
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    /* laptop */
+    .hero_layout {
+      --hero_grid_layout: "logo mainTitle subTitle callActions";
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    /* desktop */
+    .hero_layout {
+      --hero_grid_layout: "logo mainTitle subTitle callActions";
+    }
   }
 </style>

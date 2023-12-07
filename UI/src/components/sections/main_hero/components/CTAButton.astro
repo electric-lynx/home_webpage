@@ -1,7 +1,12 @@
 ---
-let variant: "primary" | "secondary" = "primary",
-  className = "",
-  navigateTo = "#contact!!";
+export interface Props {
+  className?: string;
+  variant: "primary" | "secondary" | "form";
+  navigateTo?: string;
+}
+
+let { variant = "primary", className, navigateTo } = Astro.props;
+
 const styles = {
   hover: "",
   active: "",
@@ -27,9 +32,8 @@ const styles = {
     font-weight: 400;
     border: 1px solid #e57c29;
     transition: all 0.15s ease-in-out;
-    transform: scale(1.1);
     box-shadow:
-      0 0 5px 0 #e57c29 inset,
+      0 0 2px 0 #e57c29 inset,
       0 0 10px 2px #e57c29;
     border: 2px solid #e57c29;
   }

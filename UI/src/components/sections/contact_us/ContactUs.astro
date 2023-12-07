@@ -1,8 +1,8 @@
 ---
-import Container from "../../shared/Container.astro";
-import Paragraph from "../../shared/Paragraph.astro";
-import Title from "../../shared/Title.astro";
-import NetlifyForm from "./components/NetlifyForm.astro";
+import Container from "@components/shared/Container.astro";
+import Paragraph from "@components/shared/Paragraph.astro";
+import Title from "@components/shared/Title.astro";
+import { FormNetlify } from "@components/shared/";
 ---
 
 <section id="contact" class="min:h-80 mb-12">
@@ -32,7 +32,7 @@ import NetlifyForm from "./components/NetlifyForm.astro";
         enhance your digital success
       </Paragraph>
       <div class="mt-10 w-full flex max-w-md mx-auto lg:mx-0">
-        <NetlifyForm />
+        <FormNetlify />
       </div>
     </div>
     <div

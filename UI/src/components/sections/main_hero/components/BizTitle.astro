@@ -1,0 +1,15 @@
+---
+import { TitleLineSVG, LogoHead } from "@components/svgs";
+import { Text } from "./";
+const { variant, size } = Astro.props;
+// size: sm | md | lg
+// variant titleOnly | titleIcon | Icon
+---
+
+<div class="flex flex-row">
+  <LogoHead sizeSq={100} />
+  <div class="">
+    <Text tag="h1">Electric Lynx</Text>
+    <TitleLineSVG />
+  </div>
+</div>

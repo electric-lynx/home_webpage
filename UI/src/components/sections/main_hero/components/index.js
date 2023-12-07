@@ -1,7 +1,8 @@
-import LogoHead from "./LogoHead.astro"
+
 import Text from "./Text.astro"
 import CTAButton from "./CTAButton.astro"
 import HeroBackground from "./HeroBackground.astro"
+import BizTitle from "./BizTitle.astro"
 
 
-export { LogoHead, Text, CTAButton, HeroBackground }
+export { Text, CTAButton, HeroBackground, BizTitle }
