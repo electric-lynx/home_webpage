@@ -1,5 +1,6 @@
 import Button from "./Button.astro";
 
+import Text from './text/Text.astro'
 import LinkSVG from "./LinkSVG.astro";
 import Container from "./Container.astro";
 import FooterNav from "./FooterNav.astro";
@@ -8,7 +9,7 @@ import BtnLink from "./BtnLink.astro";
 import Label from "./form_label/Label.astro";
 import FormNetlify from "./form_netlify/FormNetlify.astro";
 export {
-    LinkSVG,
+    LinkSVG, Text,
     Container,
     FooterNav,
     Paragraph,
