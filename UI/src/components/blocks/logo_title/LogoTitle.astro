@@ -1,11 +1,15 @@
 ---
+// TODO add types
+// URL: http://localhost:4321/comps/#logo
+
 import { TitleLineSVG, LogoHead } from "@components/svgs";
 import { Text } from "@components/shared";
 const { variant, size } = Astro.props;
-// size: sm | md | lg
-// variant titleOnly | titleIcon | Icon
 
 const logoSettings = (logoSize: string) => {
+  // size: sm | md | lg
+  // change sizes of text and icons
+
   if (logoSize === "sm") {
     return {
       fontClasses: "text-4xl",
@@ -16,13 +20,30 @@ const logoSettings = (logoSize: string) => {
   return "";
 };
 
+// variant display parts of logo,
+const varientComponents = () => {
+  if (variant) {
+    return ["icon", "text"].filter((type) => type === variant);
+  } else return ["icon", "text"];
+};
+// const varientComponents = compilevarietn;
 const desiredStyles = logoSettings(size);
 ---
 
-<div class="flex flex-row">
-  <LogoHead sizeSq={desiredStyles.iconSize} />
-  <div>
-    <Text tag="h1" className={desiredStyles.fontClasses}>Electric Lynx</Text>
-    <TitleLineSVG sizeLxW={desiredStyles.lineSvg} />
-  </div>
+<div class="flex flex-row gap-2">
+  {
+    varientComponents().includes("icon") ? (
+      <LogoHead sizeSq={desiredStyles.iconSize} />
+    ) : null
+  }
+  {
+    varientComponents().includes("text") ? (
+      <div>
+        <Text tag="h1" className={desiredStyles.fontClasses}>
+          Electric Lynx
+        </Text>
+        <TitleLineSVG sizeLxW={desiredStyles.lineSvg} />
+      </div>
+    ) : null
+  }
 </div>
