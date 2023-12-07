@@ -1,48 +1,65 @@
 ---
-import Paragraph from '../shared/Paragraph.astro';
-import Button from '../shared/Button.astro';
+import Paragraph from "../shared/Paragraph.astro";
+import Button from "../shared/Button.astro";
 
-export interface Props{
-    teamName: string,
-    description: string,
-    primaryPicture: string,
-    secondaryPicture: string,
-    portfolioLink: string
+export interface Props {
+  teamName: string;
+  description: string;
+  primaryPicture: string;
+  secondaryPicture: string;
+  portfolioLink: string;
 }
 
-const { teamName, description, primaryPicture, secondaryPicture, portfolioLink} = Astro.props
-
+const {
+  teamName,
+  description,
+  primaryPicture,
+  secondaryPicture,
+  portfolioLink,
+} = Astro.props;
 ---
 
-
-  <div class="card-container p-6 rounded-md shadow-md overflow-hidden">
-    <!-- Top Section -->
-    <div class="top-section relative overflow-hidden ">
-      <img src={primaryPicture} alt="Primary Image" class="primary-image w-full h-full object-cover rounded-t-md" />
-      <img src={secondaryPicture} alt="Secondary Image" class="secondary-image w-full h-full object-cover absolute top-0 left-0 rounded-t-md" />
-    </div>
-
-    <!-- Bottom Section -->
-    <div class="bottom-section p-4 bg-white dark:bg-gray-800 rounded-b-md mx-auto justify-center">
-      <h2 class="md:text-xl font-semibold text-heading-2 mt-6 mb-4"> {teamName} </h2>
-      <Paragraph>
-        {description}
-      </Paragraph>
-      <div class="mt-4">
-        <Button variant={"primary"} navigateTo={portfolioLink}>
-          <span class="text-white relative z-[5]"><b>{`${teamName.split(' ')[0]}'s portfolio`}</b></span>
-        </Button>
-      </div>
-    </div>
+<div class="card-container p-6 rounded-md shadow-md overflow-hidden">
+  <!-- Top Section -->
+  <div class="top-section relative overflow-hidden">
+    <img
+      src={primaryPicture}
+      alt="Primary Image"
+      class="primary-image w-full h-full object-cover rounded-t-md"
+    />
+    <img
+      src={secondaryPicture}
+      alt="Secondary Image"
+      class="secondary-image w-full h-full object-cover absolute top-0 left-0 rounded-t-md"
+    />
   </div>
 
-''
+  <!-- Bottom Section -->
+  <div
+    class="bottom-section p-4 bg-white dark:bg-gray-800 rounded-b-md mx-auto justify-center"
+  >
+    <h2 class="md:text-xl font-semibold text-heading-2 mt-6 mb-4">
+      {teamName}
+    </h2>
+    <Paragraph>
+      {description}
+    </Paragraph>
+    <div class="mt-4">
+      <Button variant={"primary"} navigateTo={portfolioLink}>
+        <span class="text-white relative z-[5]"
+          ><b>{`${teamName.split(" ")[0]}'s portfolio`}</b></span
+        >
+      </Button>
+    </div>
+  </div>
+</div>
+
 <style>
   .card-container {
     max-width: 400px; /* Adjust the maximum width as needed */
   }
 
-  .secondary-image{
+  .secondary-image {
     transition: opacity 0.3s ease;
   }
 
@@ -51,7 +68,5 @@ const { teamName, description, primaryPicture, secondaryPicture, portfolioLink} 
   }
 
   .top-section {
-
   }
 </style>
-

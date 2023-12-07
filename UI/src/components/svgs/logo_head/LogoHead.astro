@@ -3,7 +3,7 @@ export interface Props {
   sizeSq?: number;
 }
 
-const { sizeSq } = Astro.props;
+const { sizeSq = 100 } = Astro.props;
 const colorRange = {
   black: "#000000",
   tan: "#fbeac0",

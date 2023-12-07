@@ -2,11 +2,13 @@
 import Layout from "@layouts/Layout.astro";
 import { FormNetlify } from "@components/shared";
 import { LogoTitle } from "@components/blocks";
+import { LynxTeam } from "@components/sections";
 ---
 
 <Layout title="Welcome to AgenceX">
-  <main class="min-h-screen">
+  <main class="flex flex-col gap-20 min-h-screen pt-20">
     <LogoTitle />
     <FormNetlify />
+    <LynxTeam />
   </main>
 </Layout>

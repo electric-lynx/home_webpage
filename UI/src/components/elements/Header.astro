@@ -3,6 +3,8 @@ import BtnLink from "../shared/BtnLink.astro";
 import Container from "../shared/Container.astro";
 import Navitem from "../shared/Navitem.astro";
 
+import { LogoTitle } from "@components/blocks";
+
 const navItems = [
   {
     href: "#",
@@ -21,20 +23,18 @@ const navItems = [
     text: "Packages",
   },
 ];
-
-let logo = `            <div class="min-w-max inline-flex relative">
-                <a href="/" class="relative flex items-center gap-3">
-                    <div class="relative w-30 h-14 overflow-hidden flex rounded-xl">
-                        <img src={"/logos/electriclynxlogo.png"} alt="electric lynx logo">
-                    </div>
-                </a>
-            </div>`;
 ---
 
 <header class="absolute inset-x-0 top-0 z-50 py-6">
   <Container>
     <nav class="w-full flex justify-between gap-6 relative">
-      <!-- logo -->
+      <div class="min-w-max inline-flex relative">
+        <a href="/" class="relative flex items-center gap-3">
+          <div class="relative w-30 h-14 overflow-hidden flex rounded-xl">
+            <LogoTitle size="sm" />
+          </div>
+        </a>
+      </div>
 
       <div
         class="flex h-0 overflow-hidden lg:!h-auto md:!h-auto lg:scale-y-100 md:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row md:flex-row w-full lg:justify-between md:justify-between lg:items-center md:items-center absolute lg:relative md:relative top-full lg:top-0 md:top-0 bg-body lg:bg-transparent md:bg-transparent border-x border-x-box-border lg:border-x-0 md:border-x-0"

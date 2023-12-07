@@ -4,12 +4,25 @@ import { Text } from "@components/shared";
 const { variant, size } = Astro.props;
 // size: sm | md | lg
 // variant titleOnly | titleIcon | Icon
+
+const logoSettings = (logoSize: string) => {
+  if (logoSize === "sm") {
+    return {
+      fontClasses: "text-4xl",
+      iconSize: 50,
+      lineSvg: { w: 230, h: 25 },
+    };
+  }
+  return "";
+};
+
+const desiredStyles = logoSettings(size);
 ---
 
 <div class="flex flex-row">
-  <LogoHead sizeSq={100} />
-  <div class="">
-    <Text tag="h1">Electric Lynx</Text>
-    <TitleLineSVG />
+  <LogoHead sizeSq={desiredStyles.iconSize} />
+  <div>
+    <Text tag="h1" className={desiredStyles.fontClasses}>Electric Lynx</Text>
+    <TitleLineSVG sizeLxW={desiredStyles.lineSvg} />
   </div>
 </div>

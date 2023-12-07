@@ -1,11 +1,11 @@
 ---
-
+const { sizeLxW } = Astro.props;
 ---
 
 <svg
   class="svg_container"
-  width="400"
-  height="45"
+  width={sizeLxW?.w || "400"}
+  height={sizeLxW?.h || "45"}
   viewBox="0 0 397.02345 43.776192"
   fill="none"
   version="1.1"

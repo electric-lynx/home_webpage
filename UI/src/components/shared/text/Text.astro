@@ -20,9 +20,17 @@ const styleBank: StyleBank = {
   sub: "font-bold text-xl lg:text-2xl",
   p: "text-md lg:text-lg ",
 };
+
+function cssClasses() {
+  if (classTails !== "") {
+    return classTails;
+  }
+
+  return styleBank?.[tag];
+}
 ---
 
-<Elements class:list={[`text-heading-3`, styleBank?.[tag], classTails]}>
+<Elements class:list={[`text-heading-3`, cssClasses()]}>
   <slot />
 </Elements>
 
