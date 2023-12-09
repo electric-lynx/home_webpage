@@ -13,8 +13,8 @@ module.exports = {
 				"heading-1": "rgb(var(--heading-1))",
 				"heading-2": "rgb(var(--heading-2))",
 				"heading-3": "rgb(var(--heading-3))",
-				"sub-background": "rgb(var(--sub-background))"
-
+				"sub-background": "rgb(var(--sub-background))",
+				"elynx-orange": "#f08d27",
 			},
 			screens: {
 				midmd: "880px"
