@@ -1,0 +1,57 @@
+---
+import Button from "@components/shared/Button.astro";
+import BubBackground from "./components/BubBackground.astro";
+
+import { Text, CTAButton } from "@components/shared";
+
+// text-3xl/tight sm:text-4xl/tight md:text-5xl/tight font-bold text-heading-1
+---
+
+<section id="cta" class="pb-20">
+  <BubBackground>
+    <div class="mx-auto text-center max-w-xl md:max-w-2xl relative">
+      <Text tag="p" className="text-3xl l bold mb-8 capitalize">
+        let's add some <span class="spicy">spice</span> to your digital
+        presence.
+      </Text>
+      <Text tag="p">
+        Our goal is to foucus what can we do digitaly to get you business, help
+        remove the burden of your business digital business, let us handle the
+        ditigla stuff, so you can focus on the improtance of your business
+      </Text>
+      <div class="mx-auto max-w-md sm:max-w-xl pt-10">
+        <CTAButton
+          variant={"primary"}
+          className={""}
+          navigateTo={"./contact-us"}
+        >
+          <span class="text-white relative z-[5]">Get In Touch</span>
+        </CTAButton>
+      </div>
+    </div>
+  </BubBackground>
+</section>
+
+<style>
+  .spicy {
+    transform: rotate(-1deg);
+    color: #ffd9e2;
+    text-shadow:
+      0 0 0 transparent,
+      0 0 5px #e57c29,
+      0 0 10px rgba(255, 0, 60, 0.5),
+      0 0 20px #e57c29,
+      0 0 30px #e57c29,
+      0 0 50px #e57c29,
+      0 0 100px #e57c29,
+      0 0 200px #e57c29,
+      0 0 30px #e57c29;
+    animation: buzz 1s infinite alternate;
+  }
+
+  @keyframes buzz {
+    70% {
+      opacity: 0.8;
+    }
+  }
+</style>

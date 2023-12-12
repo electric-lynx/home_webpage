@@ -1,28 +1,10 @@
 ---
 import BtnLink from "../shared/BtnLink.astro";
-import Container from "../shared/Container.astro";
+import { Container } from "@components/shared/";
 import Navitem from "../shared/Navitem.astro";
 
 import { LogoTitle } from "@components/blocks";
-
-const navItems = [
-  {
-    href: "#",
-    text: "Home",
-  },
-  {
-    href: "#services",
-    text: "Services",
-  },
-  {
-    href: "#about-us",
-    text: "About us",
-  },
-  {
-    href: "#packages",
-    text: "Packages",
-  },
-];
+import { routes } from "@routes/mainNavigation";
 ---
 
 <header class="absolute inset-x-0 top-0 z-50 py-6">
@@ -43,7 +25,7 @@ const navItems = [
           class="border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row md:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-center lg:items-center"
         >
           {
-            navItems.map((item) => {
+            routes.map((item) => {
               return <Navitem {...item} />;
             })
           }
