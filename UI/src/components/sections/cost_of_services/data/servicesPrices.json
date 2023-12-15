@@ -2,7 +2,7 @@
   "packages": [
     {
       "icon": "fingerprint",
-      "title": "L1: Brand Buildout",
+      "title": "L3: Brand Buildout",
       "description": "A strong brand builds continuity between your product or service, your locations, your social media and your website.",
       "included": [
         "custom logo",
@@ -31,17 +31,18 @@
       "title": "L1: Web Presence",
       "description": "The internet is filled with sub-par websites. We want to change that. Each of our websites is custom-made, fully-polished and built around your brand.",
       "included": [
-        "custom domain name",
+        "Personal domain name",
+        "Website email",
         "1 year domain registration",
-        "custom web design",
-        "mobile-optimized website",
+        "Custom web design",
+        "Core Web Vitals",
         "SEO optimization"
       ],
       "price": "1000"
     },
     {
       "icon": "circlestack",
-      "title": "L42: Full Web Business",
+      "title": "L4: Full Web Business",
       "description": "Our highest-value standard package brings our full digital skills to your business, crafting custom and complete solutions to minimize your time and maximize your bottom line.",
       "included": [
         "branding package",

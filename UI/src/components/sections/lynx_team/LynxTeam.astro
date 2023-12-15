@@ -7,18 +7,46 @@ import { Text, Container } from "@components/shared";
 const { subtitle } = Astro.props;
 ---
 
-<section id="about-us">
-  <Container className="flex flex-col md:flex-row gap-10 lg:gap-12">
-    <div class="flex-1 flex md:w-7/12 lg:w-1/2 flex-col">
-      <div class="text-center max-w-3xl mx-auto space-y-4 mb-8">
-        <Text tag="h2" className="uppercase">the Lynx team</Text>
-        <Text tag="p">
-          Two man team dedicated to improving your business & your brand.
-        </Text>
+<section id="about-us" class="relative">
+  <div class="scrolling-image-container">
+    <div class="scrolling-image">tesert</div>
+  </div>
+  <div class="custom">
+    <Container className=" flex flex-col md:flex-row gap-10 lg:gap-12">
+      <div class="flex-1 flex md:w-7/12 lg:w-1/2 flex-col">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-8">
+          <Text tag="h2">the Lynx team</Text>
+          <Text tag="p">
+            Two man team dedicated to improving your business & your brand.
+          </Text>
+        </div>
+        <div class="flex flex-col justify-evenly sm:flex-row gap-4r">
+          {teamProfile.map((profile) => <TeamCard {...profile} />)}
+        </div>
       </div>
-      <div class="flex flex-col justify-evenly sm:flex-row gap-4r">
-        {teamProfile.map((profile) => <TeamCard {...profile} />)}
-      </div>
-    </div>
-  </Container>
+    </Container>
+  </div>
 </section>
+
+<style>
+  .custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .scrolling-image {
+    outline: soild;
+    background: url("./images/electriclynxlogo-justlynx-shadow_bg.png") repeat;
+    height: 940px;
+    width: 7680px;
+    animation: slide 300s linear infinite;
+  }
+  @keyframes slide {
+    0% {
+      transform: translate(0);
+    }
+    100% {
+      transform: translate(-3840px); /* The image width */
+    }
+  }
+</style>

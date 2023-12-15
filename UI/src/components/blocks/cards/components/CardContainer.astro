@@ -35,20 +35,13 @@ const IconComponent = icons[icon] || HiCursorClick;
   class="custom_layout rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow"
 >
   <IconContainer>
-    <IconComponent size={30} />
+    <slot name="card_icon" />
   </IconContainer>
 
   <div class="title flex justify-center items-center mr-20">
-    <Text tag="h3">
-      {title}
-    </Text>
+    <slot name="card_title" />
   </div>
-
-  <div class="description p-8">
-    <Text tag="p">
-      {description}
-    </Text>
-  </div>
+  <slot />
 </div>
 <style>
   .custom_layout {
