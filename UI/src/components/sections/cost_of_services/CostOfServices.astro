@@ -3,7 +3,11 @@ import PackageCard from "@components/blocks/cards/PackageCard.astro";
 import Title from "@components/shared/Title.astro";
 import { Text, Container } from "@components/shared";
 
-import { packages } from "../../utils/packagedata.ts";
+import { packages } from "./data/servicesPrices.json";
+
+const availablePackages = packages.filter(
+  (clientPackages) => clientPackages.status === "available"
+);
 ---
 
 <section id="pricing">
@@ -16,17 +20,14 @@ import { packages } from "../../utils/packagedata.ts";
           complex problems.
         </Text>
         <Text tag="p" className="mt-8">
-          if all you need is a website and few other services it will be a 1000
-          bucks. More times then not we will need to evaluate what is best for
-          you and your business fil out contact form and we can get a quote
-          worked out for you
+          The internet is filled with sub-par websites. We want to change that.
+          Each of our websites is custom-made, fully-polished and built around
+          your brand. Primarly focus on web content,
         </Text>
       </div>
-      <div
-        class="pt-8 grid md:grid-cols-2 lg:grid-cols-4 items-center gap-4 max-w-3xl md:max-w-[none]"
-      >
+      <div class="pt-8">
         {
-          packages.map((lynxpackage) => {
+          availablePackages.map((lynxpackage) => {
             return (
               <PackageCard
                 icon={lynxpackage.icon}

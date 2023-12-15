@@ -11,15 +11,16 @@
       "icon": "clipboard"
     },
     {
+      "title": "Core Web Vitals",
+      "description": "A set of metrics that measure real-world user experience for loading performance, interactivity, and visual stability of the page. We highly recommend site owners achieve good Core Web Vitals for success with Search and to ensure a great user experience generally.",
+      "icon": "magnifyingglass"
+    },
+    {
       "title": "Mobile-Adaptive",
       "description": "Over half of internet traffic is from mobile devices. We design with mobile-first principles while adapting to tablet- and desktop-sized screens.",
       "icon": "magnifyingglass"
     },
-    {
-      "title": "Tracking",
-      "description": "What's happening on your website? We provide Google Analytics by default, integrating smoothly with your Google Ad campaigns and tracking all site activity.",
-      "icon": "mobilephone"
-    },
+
     {
       "title": "Security",
       "description": "All sites come with HTTPS standard, ensuring your customers feel secure and are secure. All payment platforms feature state-of-the-art encryption.",
@@ -29,6 +30,13 @@
       "title": "Customization",
       "description": "We're industry-professional coders. That means that we can handle custom projects, integrations, and scale your services as your business grows.",
       "icon": "transparentcube"
+    }
+  ],
+  "others": [
+    {
+      "title": "Tracking",
+      "description": "What's happening on your website? We provide Google Analytics by default, integrating smoothly with your Google Ad campaigns and tracking all site activity.",
+      "icon": "mobilephone"
     }
   ]
 }
