@@ -1,0 +1,51 @@
+---
+const { h } = Astro.props;
+---
+
+<div class="scrolling-image-container">
+  <div class="scrolling-image"></div>
+  <div class="content_cover">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .scrolling-image-container {
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10%;
+  }
+  .content_cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .scrolling-image {
+    outline: soild;
+    background: url("./images/logs/electriclynxlogo-justlynx-shadow_bg.png")
+      repeat;
+    height: 7680px;
+    width: 7680px;
+    /* animation: slideL2R linear 20s alternate infinite; */
+  }
+  @keyframes slideL2R {
+    0% {
+      transform: translateY(25vh);
+    }
+    25% {
+      transform: translateX(26vh);
+    }
+    50% {
+      transform: translateX(0vh);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>

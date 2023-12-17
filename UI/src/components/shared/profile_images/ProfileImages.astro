@@ -1,38 +1,40 @@
 ---
-export interface Props {
-imagesSelection : string[];
+export interface ImageData {
+  img: string;
+  altText: string;
 }
-const {imagesSelections} = Astro.props
-
+export interface Props {
+  imagesSelections: ImageData[];
+}
+const { imagesSelections } = Astro.props;
 ---
 
 <div class="top-section relative overflow-hidden h-full">
-    <img
-      src={imagesSelections[0]}
-      alt="Primary Image"
-      class="primary-image w-full h-full object-cover rounded-t-md"
-    />
-    <img
-      src={imagesSelections[1]}
-      alt="Secondary Image"
-      class="secondary-image w-full h-full object-cover absolute top-0 left-0 rounded-t-md"
-    />
-  </div>
+  <img
+    src={imagesSelections[0].img}
+    alt={imagesSelections[0].altText}
+    class="primary-image w-full h-full object-cover rounded-t-md"
+  />
+  <img
+    src={imagesSelections[1].img}
+    alt={imagesSelections[1].altText}
+    class="secondary-image w-full h-full object-cover absolute top-0 left-0 rounded-t-md"
+  />
+</div>
 
+<style>
+  .card-container {
+    max-width: 400px; /* Adjust the maximum width as needed */
+  }
 
-  <style>
-    .card-container {
-      max-width: 400px; /* Adjust the maximum width as needed */
-    }
+  .secondary-image {
+    transition: opacity 0.3s ease;
+  }
 
-    .secondary-image {
-      transition: opacity 0.3s ease;
-    }
+  .secondary-image:hover {
+    opacity: 0;
+  }
 
-    .secondary-image:hover {
-      opacity: 0;
-    }
-
-    .top-section {
-    }
-  </style>
+  .top-section {
+  }
+</style>

@@ -1,7 +1,13 @@
 {
   "description": "Joel is a former teacher and long-time web builder, specializing in creative design and business optimization. He'd love to play you at chess.",
   "teamName": "Joel Mounts",
-  "primaryPicture": "/images/joel_portrait.png",
-  "secondaryPicture": "/images/joel_portrait-news.png",
+  "primaryPicture": {
+    "img": "/images/team_profiles/joel/joel_portrait.png",
+    "altText": "profile picture of Joel"
+  },
+  "secondaryPicture": {
+    "img": "/images/team_profiles/joel/joel_portrait-news.png",
+    "altText": "profile picture of Joel with filter"
+  },
   "portfolioLink": "https://joelmounts.com/"
 }
