@@ -1,6 +1,7 @@
 ---
 import GroupFooterNav from "../../blocks/GroupFooterNav.astro";
-import { Container, Paragraph, BtnLink } from "../../shared";
+import { Container, Paragraph, BtnLink } from "@components/shared";
+import { LogoTitle } from "@components/blocks";
 
 import FooterContainer from "./components/FooterContainer.astro";
 import { footerCompany } from "./data/links.js";
@@ -9,8 +10,8 @@ import { footerCompany } from "./data/links.js";
 <FooterContainer>
   <Container className="pb-8 relative overflow-hidden pb-36 ">
     <a href="#" class="relative flex md:w-1/4">
-      <div class="relative h-12 overflow-hidden flex rounded-xl">
-        <img src="./logos/electriclynxlogo.png" alt="electric lynx logo" />
+      <div class="relative h-12 flex rounded-xl">
+        <LogoTitle size="sm" />
       </div>
     </a>
 

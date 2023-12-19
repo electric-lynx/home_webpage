@@ -6,6 +6,7 @@ import {
   HiComputerDesktop,
   HiCircleStack,
 } from "react-icons/hi2";
+import { ElectricLine } from "@components/svgs";
 import { Text } from "@components/shared";
 import IconContainer from "./components/IconContainer.astro";
 
@@ -30,9 +31,7 @@ const { icon, title, description, included, price } = Astro.props;
 const IconComponent = icons[icon] || HiGiftTop;
 ---
 
-<div
-  class="packageCard_layout card-container min-h-full p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow"
->
+<div class="packageCard_layout card-container min-h-full p-5 sm:p-6 lg:p-8">
   <div class="card_icon">
     <IconContainer>
       <IconComponent size={24} />
@@ -42,7 +41,6 @@ const IconComponent = icons[icon] || HiGiftTop;
     <Text tag="p">
       starting: ${price}
     </Text>
-    <a class="text-heading-3" href="">Select</a>
   </div>
   <div class="title">
     <h2 class="h-10 md:text-xl font-semibold text-heading-2 mt-6 mb-4">
@@ -66,6 +64,7 @@ const IconComponent = icons[icon] || HiGiftTop;
       })
     }
   </div>
+  <a class="text-heading-3 linkage" href="">Contact <ElectricLine /></a>
 </div>
 
 <style>
@@ -78,15 +77,15 @@ const IconComponent = icons[icon] || HiGiftTop;
     justify-self: center;
     align-self: center;
   }
-
   .packageCard_layout {
     display: grid;
-    grid-template-rows: 50px 50px minmax(150px, 1fr);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 50px 50px minmax(150px, 1fr) 25px;
+    grid-template-columns: 50px repeat(2, minmax(0, 1fr));
     grid-template-areas:
       "cardIcon cardTitle selectPrice"
       "description description  included "
-      "description  description included";
+      "description  description included"
+      "description  description linkage";
   }
   @media screen and (max-width: 600px) {
     .packageCard_layout {
@@ -112,5 +111,12 @@ const IconComponent = icons[icon] || HiGiftTop;
   .description {
     grid-area: description;
     align-self: center;
+  }
+
+  .linkage {
+    grid-area: linkage;
+
+    justify-self: flex-end;
+    text-align: center;
   }
 </style>
