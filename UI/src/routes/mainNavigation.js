@@ -10,16 +10,15 @@ export const routes = [
         href: "#services",
         text: "Services",
         icon: HiClipboard
+    }, {
+        href: "#ourwork",
+        text: "Our Work",
+        icon: HiClipboard
     },
     {
         href: "#about-us",
         text: "About us",
         icon: HiUser
-    },
-    {
-        href: "#packages",
-        text: "Packages",
-        icon: HiTag
     },
     {
         href: "/contact-us",
