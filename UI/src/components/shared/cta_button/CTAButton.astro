@@ -1,5 +1,5 @@
 ---
-export interface Props {
+interface Props {
   className?: string;
   variant: "primary" | "secondary" | "form";
   navigateTo?: string;
@@ -18,17 +18,17 @@ const styles = {
   <button class:list={[className, "button-1", styles.base]}>
     <slot />
     <svg
-    width="182"
-    height="15"
-    viewBox="0 0 182 31"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M0 13.1455H94.3871L106 5L121.5 26L143.419 5L150.645 13.1455C180.581 13.1455 180.761 13.1455 182 13.1455"
-      stroke="#F08D27"
-      stroke-width="3"></path>
-  </svg>
+      width="182"
+      height="15"
+      viewBox="0 0 182 31"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 13.1455H94.3871L106 5L121.5 26L143.419 5L150.645 13.1455C180.581 13.1455 180.761 13.1455 182 13.1455"
+        stroke="#F08D27"
+        stroke-width="3"></path>
+    </svg>
   </button>
 </a>
 <style>
