@@ -6,8 +6,17 @@ export const clientWriteUp = z.object({
   client: z.string(),
   location: z.string(),
   description: z.string(),
-  images: z.string(),
+  profile_image: z.object({
+    source: z.string(),
+    alt: z.string(),
+  }),
+  secondary_image: z
+    .object({
+      source: z.string(),
+      alt: z.string(),
+    })
+    .optional(),
   date: z.string(),
-  url: z.string(),
+  client_url: z.string(),
   isPublish: z.boolean(),
 });

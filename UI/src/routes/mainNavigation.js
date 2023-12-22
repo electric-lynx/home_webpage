@@ -11,7 +11,7 @@ export const routes = [
         text: "Services",
         icon: HiClipboard
     }, {
-        href: "./our_work",
+        href: "./our-work",
         text: "Our Work",
         icon: HiClipboard
     },

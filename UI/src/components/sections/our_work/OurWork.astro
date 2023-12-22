@@ -1,8 +1,52 @@
 ---
+interface Props {
+  works: WorksProps[];
+}
+interface WorksProps {
+  id: string;
+  body: string;
+  collection: string;
+  data: ClientData;
+}
+interface ClientData {
+  layout: string;
+  title: string;
+  client: string;
+  location: string;
+  description: string;
+  profile_image: {
+    source: string;
+    alt: string;
+  };
+  secondary_image?: {
+    source: string;
+    alt: string;
+  };
+  date: string;
+  client_url: string;
+  isPublish: boolean;
+}
+
 import { Text, Container, ImageBackground } from "@components/shared";
+const { works } = Astro.props;
 ---
 
 <section>
-<contnnt
-    <Text tag="h2">Our Work</Text>
+  <Text>
+    {JSON.stringify(works)}
+  </Text>
+  {
+    works.map(({ data }) => (
+      <div class="outline m-8 flex flex-col">
+        <Text>TITLE: {data.title}</Text>
+        <Text>PROIFLE IMAGES: {data.profile_image.alt}</Text>
+        <Text>SEcondary IMAGES: {data?.secondary_image?.alt}</Text>
+        <Text>DATE: {data.date}</Text>
+        <Text>CLIENT: {data.client}</Text>
+        <Text>LOCATION: {data.location}</Text>
+        <Text>DESCRIption: {data.description}</Text>
+        <Text>clientsURL: {data.client_url}</Text>
+      </div>
+    ))
+  }
 </section>
