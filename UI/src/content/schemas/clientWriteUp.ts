@@ -18,5 +18,6 @@ export const clientWriteUp = z.object({
     .optional(),
   date: z.string(),
   client_url: z.string(),
+  tags: z.array(z.string()),
   isPublish: z.boolean(),
 });

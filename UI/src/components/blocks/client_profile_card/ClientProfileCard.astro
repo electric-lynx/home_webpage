@@ -1,0 +1,88 @@
+---
+import type { ClientMarkdownFrontMatter } from "@tsTypes/index";
+import { Container, Text } from "@components/shared";
+interface Props {
+  clientDetails: ClientMarkdownFrontMatter;
+  slug: string;
+}
+
+const { clientDetails, slug } = Astro.props;
+---
+
+<div class="outline card card_layout">
+  <Text tag="h3" class="title">TITLE: {clientDetails.title}</Text>
+  <div class="profileImage">
+    <img
+      style="background:blue"
+      src={clientDetails.profile_image.source}
+      alt={clientDetails.profile_image.alt}
+      height="150px"
+      width="250"
+    />
+  </div>
+  {
+    clientDetails.secondary_image ? (
+      <div class="secondaryImage">
+        <img
+          style="background:blue"
+          src={clientDetails.secondary_image.source}
+          alt={clientDetails.secondary_image.alt}
+          height="150px"
+          width="250"
+        />
+      </div>
+    ) : null
+  }
+  <div class="client_rundown">
+    <Text tag="p">{clientDetails.date}</Text>
+    <Text>CLIENT: {clientDetails.client}</Text>
+    <Text>LOCATION: {clientDetails.location}</Text>
+    <Text>clientsURL: {clientDetails.client_url}</Text>
+  </div>
+  <Text tag="p" class="description">{clientDetails.description}</Text>
+  <div class="el_stuff">
+
+  <div class="flex justify-evenly">
+    <Text tag="h3">TAGS:</Text>
+    {clientDetails.tags.map((x: string) => <Text>{x}</Text>)}
+  </div>
+  <a class="bg-red-100" href={`./our-work/${slug}`}> CHECK WRITE UP</a>
+  </ div>
+</div>
+
+<style>
+  .card_layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "img1 title client_rundown"
+      "description description client_rundown"
+      "description description client_rundown"
+      "el_stuff el_stuff img2";
+  }
+  .title {
+    grid-area: title;
+  }
+  .profileImage {
+    grid-area: img1;
+  }
+  .secondaryImage {
+    grid-area: img2;
+  }
+  .description {
+    grid-area: description;
+  }
+  .client_rundown {
+    grid-area: client_rundown;
+  }
+  .el_stuff{
+    grid-area: el_stuff;
+
+  }
+
+  .card {
+    background-color: rgba(240, 248, 255, 0.267);
+    padding: 10px;
+  }
+</style>

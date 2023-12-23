@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import { OurWork } from "@components/sections";
+import { ClientProfile } from "@components/sections";
 
 import { Container, Text } from "@components/shared";
 
@@ -15,7 +15,7 @@ const ourPublishedWork = await getCollection("clients_writeup", ({ data }) => {
     <section class="">
       {
         ourPublishedWork.length > 0 ? (
-          <OurWork works={ourPublishedWork} />
+          <ClientProfile works={ourPublishedWork} />
         ) : (
           <div class="dead_center">
             <Text tag="h2">

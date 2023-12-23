@@ -1,0 +1,21 @@
+---
+import type { ClientsContent } from "@tsTypes/index";
+import { Text } from "@components/shared";
+import { ClientProfileCard } from "@components/blocks";
+
+interface Props {
+  works: ClientsContent[];
+}
+
+const { works } = Astro.props;
+---
+
+<section>
+
+  {
+    works?.map(({ data, slug }) => (
+
+        <ClientProfileCard clientDetails={data}, slug={slug}/>
+    ))
+  }
+</section>

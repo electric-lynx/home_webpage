@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/ClientStoryLayout.astro
+slug: custom-websites/ds-barbershop
 client: D's Barbershop
 title: D's Barbershop case study
 location: Dayton Ohio
@@ -16,6 +17,7 @@ secondary_image:
   }
 date: 2023-12
 client_url: www.TO-the-CLIENTS-site.com
+tags: [website, custom]
 isPublish: true
 ---
 
