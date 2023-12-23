@@ -1,7 +1,7 @@
 ---
 export interface Props {
   tag?: string;
-  className?: string;
+  class?: string;
   Cssvars?: {};
 }
 interface StyleBank {
@@ -11,10 +11,10 @@ interface StyleBank {
   p: string;
 }
 
-const { tag, className = "", Cssvars = {} } = Astro.props;
+// todo UDPATE
+const { tag, Cssvars = {}, class: className, ...rest } = Astro.props;
 
 let Elements = tag || "div";
-let classTails = className || "";
 
 const styleBank: StyleBank = {
   h1: "font-black text-4xl lg:text-6xl",
@@ -25,15 +25,11 @@ const styleBank: StyleBank = {
 };
 
 function cssClasses() {
-  if (classTails !== "") {
-    return [classTails];
-  }
-
-  return styleBank?.[tag];
+  return styleBank?.[tag] || "";
 }
 ---
 
-<Elements class:list={[`text-heading-3`, cssClasses()]}>
+<Elements class:list={[`text-heading-3`, cssClasses(), className]} {...rest}>
   <slot />
 </Elements>
 

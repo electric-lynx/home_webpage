@@ -4,6 +4,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "strictNullChecks": true,
+    "verbatimModuleSyntax": true,
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
@@ -12,6 +13,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"],
       "@routes/*": ["src/routes/*"],
+      "@tsTypes/*": ["src/tsTypes/*"],
     }
   }
 }
