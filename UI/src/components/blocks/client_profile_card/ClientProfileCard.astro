@@ -1,6 +1,7 @@
 ---
 import type { ClientMarkdownFrontMatter } from "@tsTypes/index";
 import { Container, Text } from "@components/shared";
+import { ElectricLine } from "@components/svgs";
 interface Props {
   clientDetails: ClientMarkdownFrontMatter;
   slug: string;
@@ -9,15 +10,18 @@ interface Props {
 const { clientDetails, slug } = Astro.props;
 ---
 
-<div class="outline card card_layout">
-  <Text tag="h3" class="title">TITLE: {clientDetails.title}</Text>
+<div class="card card_layout">
+  <div class="title_container">
+    <Text tag="h3" class="custom_title">{clientDetails.title}</Text>
+    <!-- <ElectricLine w="250px" h="50px" /> -->
+  </div>
+
   <div class="profileImage">
     <img
-      style="background:blue"
       src={clientDetails.profile_image.source}
       alt={clientDetails.profile_image.alt}
-      height="150px"
-      width="250"
+      height="900px"
+      width="300px"
     />
   </div>
   {
@@ -33,56 +37,73 @@ const { clientDetails, slug } = Astro.props;
       </div>
     ) : null
   }
-  <div class="client_rundown">
-    <Text tag="p">{clientDetails.date}</Text>
-    <Text>CLIENT: {clientDetails.client}</Text>
-    <Text>LOCATION: {clientDetails.location}</Text>
-    <Text>clientsURL: {clientDetails.client_url}</Text>
+
+  <div class="client_rundown flex flex-col gap-2 mx-8">
+    <div class="flex justify-between">
+      <Text>{clientDetails.client}</Text>
+      <Text tag="p">{clientDetails.date}</Text>
+    </div>
+
+    <Text>
+      <a href={clientDetails.client_url}>{clientDetails.client_url}</a>
+    </Text>
+    <Text>{clientDetails.location}</Text>
   </div>
+
   <Text tag="p" class="description">{clientDetails.description}</Text>
-  <div class="el_stuff">
-
-  <div class="flex justify-evenly">
-    <Text tag="h3">TAGS:</Text>
-    {clientDetails.tags.map((x: string) => <Text>{x}</Text>)}
+  <div class="el_stuff flex justify-between mx-12">
+    <Text tag="p">
+      <a href={`./our-work/${slug}`}> Full Details -></a>
+    </Text>
+    <div class="flex gap-4 items-center">
+      <Text tag="h3">TAGS:</Text>
+      {
+        clientDetails.tags.map((x: string) => (
+          <Text class="border p-2 rounded">{x}</Text>
+        ))
+      }
+    </div>
   </div>
-  <a class="bg-red-100" href={`./our-work/${slug}`}> CHECK WRITE UP</a>
-  </ div>
+
+  <style>
+    .card_layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-areas:
+        "title title client_rundown"
+        "description description img1"
+        "el_stuff el_stuff  img2";
+    }
+    .title_container {
+      grid-area: title;
+    }
+    .custom_title {
+      font-size: 2em;
+      border-bottom: 2px solid var(--elynx-orange);
+    }
+    .profileImage {
+      grid-area: img1;
+    }
+    .secondaryImage {
+      grid-area: img2;
+    }
+    .description {
+      grid-area: description;
+    }
+    .client_rundown {
+      grid-area: client_rundown;
+    }
+    .el_stuff {
+      grid-area: el_stuff;
+      align-self: end;
+    }
+
+    .card {
+      /* background-color: rgba(240, 248, 255, 0.267); */
+      padding: 10px;
+      margin: 20px;
+      margin-bottom: 120px;
+    }
+  </style>
 </div>
-
-<style>
-  .card_layout {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-areas:
-      "img1 title client_rundown"
-      "description description client_rundown"
-      "description description client_rundown"
-      "el_stuff el_stuff img2";
-  }
-  .title {
-    grid-area: title;
-  }
-  .profileImage {
-    grid-area: img1;
-  }
-  .secondaryImage {
-    grid-area: img2;
-  }
-  .description {
-    grid-area: description;
-  }
-  .client_rundown {
-    grid-area: client_rundown;
-  }
-  .el_stuff{
-    grid-area: el_stuff;
-
-  }
-
-  .card {
-    background-color: rgba(240, 248, 255, 0.267);
-    padding: 10px;
-  }
-</style>
