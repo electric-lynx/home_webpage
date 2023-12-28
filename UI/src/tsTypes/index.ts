@@ -3,4 +3,6 @@ import type {
   ClientMarkdownFrontMatter,
 } from "./ClientsContent";
 
-export type { ClientsContent, ClientMarkdownFrontMatter };
+import type { ImageData } from "./teamBios";
+
+export type { ClientsContent, ClientMarkdownFrontMatter, ImageData };

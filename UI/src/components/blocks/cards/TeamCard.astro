@@ -1,4 +1,6 @@
 ---
+import type { ImageData } from "@tsTypes/index";
+
 import Button from "@components/shared/Button.astro";
 import { Text, ProfileImages } from "@components/shared";
 import { ElectricLine } from "@components/svgs";
@@ -6,8 +8,8 @@ import { ElectricLine } from "@components/svgs";
 interface Props {
   teamName: string;
   description: string;
-  primaryPicture: string;
-  secondaryPicture: string;
+  primaryPicture: ImageData;
+  secondaryPicture: ImageData;
   portfolioLink: string;
 }
 

@@ -1,3 +1,4 @@
 import { clientWriteUp } from "./clientWriteUp";
+import { teamBio } from "./teamBio";
 
-export { clientWriteUp };
+export { clientWriteUp, teamBio };

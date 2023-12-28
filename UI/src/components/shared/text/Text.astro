@@ -25,7 +25,7 @@ const styleBank: StyleBank = {
 };
 
 function cssClasses() {
-  return styleBank?.[tag] || "";
+  return !className ? styleBank?.[tag] : "";
 }
 ---
 

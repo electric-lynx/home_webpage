@@ -1,14 +1,18 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { FormNetlify } from "@components/blocks";
-import { LogoTitle } from "@components/blocks";
+import { LogoTitle, TeamBios } from "@components/blocks";
 import { LynxTeam } from "@components/sections";
 ---
 
 <Layout title="Electric Lynx ">
-  <main class="flex flex-col gap-20 min-h-screen pt-20">
-    <LogoTitle variant="icon" />
-    <FormNetlify />
-    <LynxTeam />
+  <main
+    class="flex flex-col items-center justify-center gap-20 min-h-screen pt-20"
+  >
+    <div class="w-1/2 mt">
+      <FormNetlify />
+    </div>
+
+    <TeamBios />
   </main>
 </Layout>
