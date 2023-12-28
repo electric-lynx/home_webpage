@@ -2,12 +2,12 @@
   "description": "An Ohio native, Matt is a front end engineer, he applies methods and practices learnt from past employment as a automotive engineer. Enjoys stepping way from the computer to be outside to take care of his animals",
   "teamName": "Matt Atterholt",
   "primaryPicture": {
-    "img": "/images/team_profiles/matt/matt_portrait.png",
-    "altText": "profile picture of Matt with filter"
+    "source": "/images/team_profiles/matt/matt_portrait.png",
+    "alt": "profile picture of Matt with filter"
   },
   "secondaryPicture": {
-    "img": "/images/team_profiles/matt/matt_portrait-news.png",
-    "altText": "profile picture of Matt with filter"
+    "source": "/images/team_profiles/matt/matt_portrait-news.png",
+    "alt": "profile picture of Matt with filter"
   },
 
   "portfolioLink": "https://www.matterholt.com/"

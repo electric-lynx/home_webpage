@@ -1,6 +1,7 @@
 ---
   teamName: Matt Atterholt
   portfolioLink: https://www.matterholt.com/
+  contact : hello@electriclynx.com 
   primaryPicture: {
     source: /images/team_profiles/matt/matt_portrait.png,
     alt: profile picture of Matt with filter

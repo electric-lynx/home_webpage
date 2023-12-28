@@ -1,8 +1,8 @@
 ---
 import { teamProfile } from "./data";
 
-import TeamCard from "@components/blocks/cards/TeamCard.astro";
-import { Text, Container, ImageBackground } from "@components/shared";
+import { Text, Container } from "@components/shared";
+import { TeamBios } from "@components/blocks";
 
 const { subtitle } = Astro.props;
 ---
@@ -16,11 +16,9 @@ const { subtitle } = Astro.props;
           Two man team dedicated to improving your business & your brand.
         </Text>
       </div>
-      <div class="flex flex-col justify-evenly sm:flex-row gap-4r">
-        {teamProfile.map((profile) => <TeamCard {...profile} />)}
-      </div>
+      <TeamBios />
     </div>
   </Container>
-</section>
 
-<style></style>
+  <style></style>
+</section>

@@ -1,17 +1,24 @@
 ---
-import { Text } from "@components/shared";
 import { TeamCard } from "@components/blocks";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
+interface Props {
+  varient?: string;
+}
 
-const ourPublishedWork = await getCollection("team_profile");
+const { varient } = Astro.props;
+
+// has slug, make a personal page within EL
+const ourEstablishedTeam = await getCollection("team_profile");
 ---
 
 <div class="flex flex-col justify-evenly sm:flex-row gap-4r">
   {
-    ourPublishedWork.map(({ data, body }) => (
+    ourEstablishedTeam.map(({ data, body }) => (
       <TeamCard
+        {varient}
         teamName={data.teamName}
         description={body}
+        contact={data.contact}
         primaryPicture={data.primaryPicture}
         secondaryPicture={data.secondaryPicture}
         portfolioLink={data.portfolioLink}

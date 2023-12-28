@@ -1,6 +1,8 @@
 ---
 teamName: Joel Mounts
 portfolioLink: https://joelmounts.com/
+contact : hello@electriclynx.com 
+
 primaryPicture: {
 source: /images/team_profiles/joel/joel_portrait.png,
 alt: profile picture of Joel
