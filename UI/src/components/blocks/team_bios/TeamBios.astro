@@ -9,9 +9,12 @@ const { varient } = Astro.props;
 
 // has slug, make a personal page within EL
 const ourEstablishedTeam = await getCollection("team_profile");
+
+const gridLayout =
+  varient !== "full" ? " grid-rows-1 grid-cols-2" : "grid-cols-1 grid-rows-2";
 ---
 
-<div class="flex flex-col justify-evenly sm:flex-row gap-4r">
+<div class:list={["bioLayout justify-evenly grid", gridLayout]}>
   {
     ourEstablishedTeam.map(({ data, body }) => (
       <TeamCard
