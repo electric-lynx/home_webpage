@@ -2,6 +2,9 @@
 import type { ClientMarkdownFrontMatter } from "@tsTypes/index";
 import { Container, Text } from "@components/shared";
 import { ElectricLine } from "@components/svgs";
+
+import { ImagesContainer } from "./component";
+
 interface Props {
   clientDetails: ClientMarkdownFrontMatter;
   slug: string;
@@ -13,31 +16,16 @@ const { clientDetails, slug } = Astro.props;
 <div class="card card_layout">
   <div class="title_container">
     <Text tag="h3" class="custom_title">{clientDetails.title}</Text>
-    <!-- <ElectricLine w="250px" h="50px" /> -->
   </div>
 
   <div class="profileImage">
-    {
-      clientDetails.secondary_image ? (
-        <img
-          class="scondary_img"
-          src={clientDetails.secondary_image.source}
-          alt={clientDetails.secondary_image.alt}
-          height="150px"
-          width="250"
-        />
-      ) : null
-    }
-    <img
-      class="main_img"
-      src={clientDetails.profile_image.source}
-      alt={clientDetails.profile_image.alt}
-      height="900px"
-      width="300px"
+    <ImagesContainer
+      profile_image={clientDetails.profile_image}
+      secondary_image={clientDetails.secondary_image}
     />
   </div>
 
-  <div class="client_rundown flex flex-col gap-2 mx-8">
+  <div class="client_rundown flex flex-col justify-between gap-2 mx-8">
     <Text>{clientDetails.client}</Text>
 
     <Text>
@@ -45,24 +33,21 @@ const { clientDetails, slug } = Astro.props;
     </Text>
     <Text>{clientDetails.location}</Text>
     <Text tag="p">{clientDetails.date}</Text>
-  </div>
-
-  <Text tag="p" class="description">{clientDetails.description}</Text>
-  <div class="el_stuff flex justify-between mx-12">
     <Text tag="p">
       <a href={`./our-work/${slug}`}> Full Details -></a>
     </Text>
   </div>
 
+  <Text tag="p" class="description">{clientDetails.description}</Text>
+
   <style>
     .card_layout {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: 1fr 550px 175px;
+      grid-template-rows: 50px 1fr;
       grid-template-areas:
         "title title title"
-        "description img1 client_rundown "
-        "description img1  el_stuff";
+        "img1 description  client_rundown ";
     }
     .title_container {
       grid-area: title;
@@ -74,25 +59,14 @@ const { clientDetails, slug } = Astro.props;
     .profileImage {
       grid-area: img1;
       position: relative;
-      img {
-        position: absolute;
-        transform: skew(2deg, 5deg);
-      }
-      .scondary_img {
-        z-index: 0;
-        top: 70px;
-        left: 70px;
-      }
-      .main_img {
-        z-index: 10;
-        top: 100px;
-      }
+      top: 25%;
+      left: 15%;
     }
-    .secondaryImage {
-      grid-area: img2;
-    }
+
     .description {
       grid-area: description;
+      place-self: center;
+      padding: 10% 15%;
     }
     .client_rundown {
       grid-area: client_rundown;

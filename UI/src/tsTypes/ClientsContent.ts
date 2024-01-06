@@ -5,20 +5,18 @@ export interface ClientsContent {
   data: ClientMarkdownFrontMatter;
   slug: string;
 }
+export interface ClientMarkdownImages {
+  source: string;
+  alt: string;
+}
 export interface ClientMarkdownFrontMatter {
   layout: string;
   title: string;
   client: string;
   location: string;
   description: string;
-  profile_image: {
-    source: string;
-    alt: string;
-  };
-  secondary_image?: {
-    source: string;
-    alt: string;
-  };
+  profile_image: ClientMarkdownImages;
+  secondary_image?: ClientMarkdownImages;
   date: string;
   client_url: string;
   tags: string[];

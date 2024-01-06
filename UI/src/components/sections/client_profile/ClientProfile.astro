@@ -10,7 +10,7 @@ interface Props {
 const { works } = Astro.props;
 ---
 
-<section>
+<section class="flex flex-col gap-20 mt-20">
 
   {
     works?.map(({ data, slug }) => (

@@ -1,0 +1,57 @@
+---
+import type { ClientMarkdownImages } from "@tsTypes/ClientsContent";
+
+interface Props {
+  profile_image: ClientMarkdownImages;
+  secondary_image?: ClientMarkdownImages;
+}
+
+const { profile_image, secondary_image } = Astro.props;
+---
+
+<div>
+  {
+    secondary_image ? (
+      <img
+        class="scondary_img"
+        src={secondary_image.source}
+        alt={secondary_image.alt}
+        height="150px"
+        width="250"
+      />
+    ) : null
+  }
+  <img
+    class="main_img"
+    src={profile_image.source}
+    alt={profile_image.alt}
+    height="150px"
+    width="300px"
+  />
+</div>
+<style>
+  img {
+    position: absolute;
+    transform: skew(-2deg, -5deg);
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+  }
+  .scondary_img {
+    z-index: 0;
+    top: -7px;
+    left: -7px;
+  }
+  .main_img {
+    z-index: 10;
+    /* top: 100px; */
+  }
+  img:hover {
+    z-index: 11;
+    transform: skew(0deg, 0deg) scale(1.3);
+
+    transition: all 300ms ease-in-out;
+  }
+  .scondary_img:hover {
+    display: none;
+  }
+</style>
