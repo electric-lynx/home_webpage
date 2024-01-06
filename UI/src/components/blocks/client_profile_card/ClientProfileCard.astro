@@ -17,37 +17,34 @@ const { clientDetails, slug } = Astro.props;
   </div>
 
   <div class="profileImage">
+    {
+      clientDetails.secondary_image ? (
+        <img
+          class="scondary_img"
+          src={clientDetails.secondary_image.source}
+          alt={clientDetails.secondary_image.alt}
+          height="150px"
+          width="250"
+        />
+      ) : null
+    }
     <img
+      class="main_img"
       src={clientDetails.profile_image.source}
       alt={clientDetails.profile_image.alt}
       height="900px"
       width="300px"
     />
   </div>
-  {
-    clientDetails.secondary_image ? (
-      <div class="secondaryImage">
-        <img
-          style="background:blue"
-          src={clientDetails.secondary_image.source}
-          alt={clientDetails.secondary_image.alt}
-          height="150px"
-          width="250"
-        />
-      </div>
-    ) : null
-  }
 
   <div class="client_rundown flex flex-col gap-2 mx-8">
-    <div class="flex justify-between">
-      <Text>{clientDetails.client}</Text>
-      <Text tag="p">{clientDetails.date}</Text>
-    </div>
+    <Text>{clientDetails.client}</Text>
 
     <Text>
       <a href={clientDetails.client_url}>{clientDetails.client_url}</a>
     </Text>
     <Text>{clientDetails.location}</Text>
+    <Text tag="p">{clientDetails.date}</Text>
   </div>
 
   <Text tag="p" class="description">{clientDetails.description}</Text>
@@ -55,14 +52,6 @@ const { clientDetails, slug } = Astro.props;
     <Text tag="p">
       <a href={`./our-work/${slug}`}> Full Details -></a>
     </Text>
-    <div class="flex gap-4 items-center">
-      <Text tag="h3">TAGS:</Text>
-      {
-        clientDetails.tags.map((x: string) => (
-          <Text class="border p-2 rounded">{x}</Text>
-        ))
-      }
-    </div>
   </div>
 
   <style>
@@ -71,9 +60,9 @@ const { clientDetails, slug } = Astro.props;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
       grid-template-areas:
-        "title title client_rundown"
-        "description description img1"
-        "el_stuff el_stuff  img2";
+        "title title title"
+        "description img1 client_rundown "
+        "description img1  el_stuff";
     }
     .title_container {
       grid-area: title;
@@ -84,6 +73,20 @@ const { clientDetails, slug } = Astro.props;
     }
     .profileImage {
       grid-area: img1;
+      position: relative;
+      img {
+        position: absolute;
+        transform: skew(2deg, 5deg);
+      }
+      .scondary_img {
+        z-index: 0;
+        top: 70px;
+        left: 70px;
+      }
+      .main_img {
+        z-index: 10;
+        top: 100px;
+      }
     }
     .secondaryImage {
       grid-area: img2;
