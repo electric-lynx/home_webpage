@@ -10,9 +10,10 @@ import Label from "./form_label/Label.astro";
 import CTAButton from "./cta_button/CTAButton.astro"
 import ProfileImages from './profile_images/ProfileImages.astro'
 import ImageBackground from "./image_background/ImageBackground.astro"
+import ALink from "./ahref_link/ALink.astro";
 
 export {
-    LinkSVG, Text,
+    LinkSVG, Text, ALink,
     Container, ImageBackground,
     FooterNav,
     Paragraph,
