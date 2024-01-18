@@ -9,7 +9,9 @@ interface Props {
 const { imagesSelections } = Astro.props;
 ---
 
-<div class="top-section relative overflow-hidden outline">
+<div
+  class:list={["main_profile_images", "top-section relative overflow-hidden"]}
+>
   <img
     src={imagesSelections[0].source}
     alt={imagesSelections[0].alt}
@@ -27,6 +29,9 @@ const { imagesSelections } = Astro.props;
 </div>
 
 <style>
+  .main_profile_images {
+    grid-area: "image";
+  }
   .secondary-image {
     transition: opacity 0.3s ease;
   }
@@ -37,5 +42,7 @@ const { imagesSelections } = Astro.props;
 
   .top-section {
     width: fit-content;
+    max-width: 213px;
+    max-height: 213px;
   }
 </style>

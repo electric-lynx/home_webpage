@@ -13,6 +13,7 @@ interface Props {
   primaryPicture: ImageData;
   secondaryPicture: ImageData;
   portfolioLink: string;
+  visualSetting: string[];
 }
 
 const {
@@ -23,86 +24,82 @@ const {
   primaryPicture,
   secondaryPicture,
   portfolioLink,
+  visualSetting,
 } = Astro.props;
-
-const visualSetting = new Set(["images", "name", "profileURL", "description"]);
-const cssSettingsVars = [];
-
-// varients types, default is all, simple = image | name | email
-
-function resolveVarient(varientType: string | undefined) {
-  if (varientType === "simple") {
-    visualSetting.delete("description");
-    visualSetting.delete("profileURL");
-    visualSetting.add("contact");
-  }
-  if (varient === "full") {
-    visualSetting.add("contact");
-  }
-
-  return;
-}
-resolveVarient(varient);
 
 const flex_direction = varient !== "full" ? "column" : "row";
 const contentWidth = varient !== "full" ? "400px" : "550px";
 ---
 
 <div class="card-container m-12">
-  <!-- Top Section -->
-  <ProfileImages imagesSelections={[primaryPicture, secondaryPicture]} />
+  <div class="profile_images">
+    <ProfileImages imagesSelections={[primaryPicture, secondaryPicture]} />
+  </div>
 
-  <!-- Bottom Section -->
-  <div class="text-content_container flex flex-col gap-4 pt-4">
-    <Text tag="h3">
-      {teamName}
-    </Text>
-    {
-      visualSetting.has("description") ? (
-        <Text tag="p">{description}</Text>
-      ) : null
-    }
-  </div>
-  <div class="links-content_container">
-    {
-      visualSetting.has("profileURL") ? (
-        <div class="mt-4 flex flex-col items-end text-heading-3">
-          <a href={portfolioLink}>
-            <span class="flex flex-col justify-center">
-              <b>{`${teamName.split(" ")[0]}'s Portfolio`}</b>
-              <ElectricLine w="120" h="20" />
-            </span>
-          </a>
-        </div>
-      ) : null
-    }
-    {
-      visualSetting.has("contact") ? (
-        <div class="mt-4 flex flex-col text-heading-3">
-          <a href={`mailto:${contact}`}>
-            <span class="flex flex-col justify-center">
-              <b>{contact}</b>
-              <ElectricLine w="120" h="20" />
-            </span>
-          </a>
-        </div>
-      ) : null
-    }
-  </div>
+  <Text tag="h3" class="profile_name">
+    {teamName}
+  </Text>
+  {
+    visualSetting.includes("description") && (
+      <Text tag="p" class="profile_description">
+        {description}
+      </Text>
+    )
+  }
+  {
+    visualSetting.includes("profileURL") && (
+      <div class="mt-4 flex flex-col items-end text-heading-3">
+        <a href={portfolioLink}>
+          <span class="flex flex-col justify-center">
+            <b>{`${teamName.split(" ")[0]}'s Portfolio`}</b>
+            <ElectricLine w="120" h="20" />
+          </span>
+        </a>
+      </div>
+    )
+  }
+  {
+    visualSetting.includes("contact") && (
+      <div class="mt-4 flex flex-col text-heading-3">
+        <a href={`mailto:${contact}`}>
+          <span class="flex flex-col justify-center">
+            <b>{contact}</b>
+            <ElectricLine w="120" h="20" />
+          </span>
+        </a>
+      </div>
+    )
+  }
   <style define:vars={{ flex_direction, contentWidth }}>
     .text-content_container {
       max-width: var(--contentWidth);
     }
-    .links-content_container {
+    /* .links-content_container {
       display: flex;
       flex-direction: var(--flex_direction);
       flex-wrap: wrap;
       width: min-content;
-    }
+    } */
     .card-container {
-      display: flex;
-      flex-direction: var(--flex_direction);
       gap: 20px;
+      display: grid;
+      grid-template-areas:
+        "image name name"
+        "image description description"
+        "image links1 link2";
+    }
+    .profile_description {
+      grid-area: description;
+    }
+
+    .full_Card_layout {
+      grid-template-areas: "image ";
+    }
+    .profile_name {
+      grid-area: name;
+    }
+    .profile_images {
+      grid-area: image;
     }
   </style>
 </div>
