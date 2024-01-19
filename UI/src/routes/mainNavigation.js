@@ -4,25 +4,30 @@ export const routes = [
     {
         href: "./",
         text: "Home",
-        icon: HiHome
+        icon: HiHome,
+        isActive: true
     },
     {
         href: "#services",
         text: "Services",
-        icon: HiClipboard
-    }, {
-        href: "./our-work",
-        text: "Our Work",
-        icon: HiClipboard
+        icon: HiClipboard,
+        isActive: true
     },
     {
         href: "/about-us",
         text: "About us",
-        icon: HiUser
+        icon: HiUser,
+        isActive: true
     },
     {
         href: "/contact-us",
         text: "Contact",
-        icon: HiMail
+        icon: HiMail,
+        isActive: true
+    }, {
+        href: "./our-work",
+        text: "Our Work",
+        icon: HiClipboard,
+        isActive: false
     }
 ];
