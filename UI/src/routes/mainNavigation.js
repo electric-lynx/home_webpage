@@ -17,7 +17,7 @@ export const routes = [
     },
     {
         href: "/about-us",
-        text: "About us",
+        text: "About Us",
         icon: HiUser
     },
     {
