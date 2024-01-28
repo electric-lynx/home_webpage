@@ -5,28 +5,29 @@ export const routes = [
         href: "./",
         text: "Home",
         icon: HiHome,
-        isActive: true,
+        isActive: true
     },
     {
         href: "#services",
         text: "Services",
         icon: HiClipboard,
-        isActive: true,
-    }, 
+        isActive: true
+    },
     {
         href: "/about-us",
-        text: "About Us",
-        icon: HiUser
+        text: "About us",
+        icon: HiUser,
+        isActive: true
     },
     {
         href: "/contact-us",
         text: "Contact",
-        icon: HiMail
-    },
-    {
+        icon: HiMail,
+        isActive: true
+    }, {
         href: "./our-work",
         text: "Our Work",
         icon: HiClipboard,
-        isActive: false,
+        isActive: false
     }
 ];

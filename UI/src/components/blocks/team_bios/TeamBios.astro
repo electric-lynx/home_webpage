@@ -4,8 +4,40 @@ import { getCollection } from "astro:content";
 interface Props {
   varient?: string;
 }
+const __VisualSetting = new Set([
+  "images",
+  "name",
+  "profileURL",
+  "description",
+]);
 
+const __Styles = {
+  full: {
+    flexDirection: "row",
+    contentWidth: "550px",
+    contentGridLayout: "grid-cols-1 grid-rows-2",
+  },
+  default: {
+    flexDirection: "column",
+    contentWidth: "400px",
+    contentGridLayout: " grid-cols-2 grid-rows-1",
+  },
+};
+function resolveVarient(varientType: string | undefined) {
+  if (varientType === "simple") {
+    __VisualSetting.delete("description");
+    __VisualSetting.delete("profileURL");
+    __VisualSetting.add("contact");
+  }
+  if (varient === "full") {
+    __VisualSetting.add("contact");
+  }
+
+  return;
+}
 const { varient } = Astro.props;
+// varients simple, full , default
+resolveVarient(varient);
 
 // has slug, make a personal page within EL
 const ourEstablishedTeam = await getCollection("team_profile");
@@ -16,7 +48,7 @@ const gridLayout =
 
 <div class:list={["bioLayout justify-evenly flex flex-col md:flex-row lg:flex-row", gridLayout]}>
   {
-    ourEstablishedTeam.map(({ data, body }) => (
+    ourEstablishedTeam.map(({ data, body }, indx) => (
       <TeamCard
         {varient}
         teamName={data.teamName}
@@ -25,6 +57,7 @@ const gridLayout =
         primaryPicture={data.primaryPicture}
         secondaryPicture={data.secondaryPicture}
         portfolioLink={data.portfolioLink}
+        visualSetting={[...__VisualSetting]}
       />
     ))
   }
