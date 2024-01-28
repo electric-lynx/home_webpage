@@ -7,17 +7,17 @@ import { Text, CTAButton } from "@components/shared";
 <container class="hero-section">
   <div class="hero-section__headline max-w-80vw md:max-w-60vw lg:max-w-60vw">
     <div class="hero-section__headline-grid">
-      <div class="hero-section__left grid gap-1 place-items-center min-w-235px md:w-305px lg:w-364">
+      <div class="hero-section__left grid gap-1 place-items-center">
         <div class="space-y-2 h-fit p-6 rounded-3xl border border-box-border bg-box-bg/80 shadow-box-shadow hero-section__headline-grid__text">
-          <Text class="flex items-center text-lg font-bold md:text-4xl lg:text-4xl">
-            Leave your customers in awe.
+          <Text class="flex items-center text-lg font-bold md:text-4xl lg:text-4xl leading-tight">
+            Leave your customers shocked.
           </Text>
-          <Text class="text-sm md:text-lg lg:text-xl">
-            <b>Your brand is your reputation.</b> It lives on the web. And it draws in dollars.<br><b>We're web pros</b>, and we're here to electrify your brand.
+          <Text class="text-sm md:text-lg lg:text-xl leading-normal lg:leading-relaxed">
+            <b>Your brand is your reputation.  </b>It creates value for your business.  And it needs careful attention. <br><b>We're web pros</b>, and we're here to electrify your brand.
           </Text>
         </div>
         <CTAButton  variant={"primary"} navigateTo={"./contact-us"}>
-          <span class="text-white relative z-[5]">Get In Touch</span>
+          <span class="ext-gray-900 dark:text-white relative z-[5]">Get In Touch</span>
         </CTAButton>
       </div>
         <img
@@ -37,7 +37,7 @@ import { Text, CTAButton } from "@components/shared";
 .hero-section{
   width: 100%;
   padding-top: 20vh;
-  min-height: 80vh;
+  min-height: 60vh;
 
   display: flex;
   flex-direction: column;
@@ -57,17 +57,27 @@ import { Text, CTAButton } from "@components/shared";
   display: grid;
   grid-template-columns: 1.5fr 1fr;
 }
+.hero-section__headline-grid__text{
+  width: 235px;
+  @media (min-width: 768px) {
+    width: 305px;
+  }
+  @media (min-width: 1024px) {
+    width: 580px;
+  }
+  @@media (min-width: 1280px) {
+    width: 580px;
+  }
+  @media (min-width: 1536px) {
+    width: 580px;
+  }
+}
 
 .hero-section__headline-image{
-  min-width: 170px;
+  min-width: 200px;
+  @media (max-width: 410px) {
+  width: 120px;
+  }
 }
-
-.hero-section__left{
-}
-
-.hero-section__background{
-
-}
-
 
 </style>
