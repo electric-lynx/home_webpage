@@ -5,6 +5,8 @@ import Navitem from "../shared/Navitem.astro";
 
 import { LogoTitle } from "@components/blocks";
 import { routes } from "@routes/mainNavigation";
+
+const activeRoutes = routes.filter((route) => route.isActive);
 ---
 
 <header class="header absolute inset-x-0 top-0 z-50 py-6">
@@ -25,7 +27,7 @@ import { routes } from "@routes/mainNavigation";
           class="border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row md:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-center lg:items-center"
         >
           {
-            routes.map((item) => {
+            activeRoutes.map((item) => {
               return <Navitem {...item} />;
             })
           }
