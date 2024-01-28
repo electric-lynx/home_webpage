@@ -13,4 +13,4 @@
 
 ---
 
-An Ohio native, Matt is a front-end engineer, and former automotive engineer. When he needs a break from coding, he steps out to take care of his animals.
+An Ohio native, Matt is a front-end software developer and former automotive engineer. When he needs a break from coding, he steps out to take care of his animals.
