@@ -13,4 +13,4 @@
 
 ---
 
-An Ohio native, Matt is a front end engineer, he applies methods and practices learnt from past employment as a automotive engineer. Enjoys stepping way from the computer to be outside to take care of his animals
+An Ohio native, Matt is a front-end engineer, and former automotive engineer. When he needs a break from coding, he steps out to take care of his animals.

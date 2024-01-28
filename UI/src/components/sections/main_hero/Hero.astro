@@ -16,9 +16,11 @@ import { Text, CTAButton } from "@components/shared";
             <b>Your brand is your reputation.  </b>It creates value for your business.  And it needs careful attention. <br><b>We're web pros</b>, and we're here to electrify your brand.
           </Text>
         </div>
-        <CTAButton  variant={"primary"} navigateTo={"./contact-us"}>
-          <span class="ext-gray-900 dark:text-white relative z-[5]">Get In Touch</span>
-        </CTAButton>
+        <div class="ctabutton margin-bottom-5px">
+          <CTAButton  variant={"primary"} navigateTo={"./contact-us"} >
+            <span class="ext-gray-900 dark:text-white relative mb-5 z-[5]">Get In Touch</span>
+          </CTAButton>
+        </div>
       </div>
         <img
           class="hero-section__headline-image"
@@ -78,6 +80,10 @@ import { Text, CTAButton } from "@components/shared";
   @media (max-width: 410px) {
   width: 120px;
   }
+}
+
+.ctabutton{
+  margin-bottom: 5px;
 }
 
 </style>

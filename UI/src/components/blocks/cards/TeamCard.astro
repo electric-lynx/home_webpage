@@ -55,7 +55,9 @@ const contentWidth = varient !== "full" ? "400px" : "550px";
   <!-- Bottom Section -->
   <div class="text-content_container flex flex-col gap-4 pt-4">
     <Text tag="h3">
-      {teamName}
+      <span class="whitespace-nowrap">
+        {teamName}
+      </span>
     </Text>
     {
       visualSetting.has("description") ? (
@@ -66,7 +68,7 @@ const contentWidth = varient !== "full" ? "400px" : "550px";
   <div class="links-content_container">
     {
       visualSetting.has("profileURL") ? (
-        <div class="mt-4 flex flex-col items-end text-heading-3">
+        <div class="mt-4 flex flex-col items-end text-heading-3 whitespace-nowrap">
           <a href={portfolioLink}>
             <span class="flex flex-col justify-center">
               <b>{`${teamName.split(" ")[0]}'s Portfolio`}</b>
