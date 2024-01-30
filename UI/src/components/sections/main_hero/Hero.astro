@@ -1,65 +1,89 @@
 ---
-import { Container, Text } from "@components/shared";
+import { Text, CTAButton } from "@components/shared";
 
-import { CTAButton } from "./components";
 ---
 
-<section class:list={["pt-20 ", "hero_layout"]}>
-  <Container className="flex gap-6 flex-col justify-center text-center ">
-    <Text tag="sub">
-      Web masters for your business, We Linking together the pieces of the web
-      to electrify your business.
-    </Text>
 
-    <div class="mt-20 flex gap-8 flex-col">
-      <Text tag="p">
-        Send us your current website and find out what we can do for you.
-      </Text>
+<container class="hero-section">
+  <div class="hero-section__headline max-w-80vw md:max-w-60vw lg:max-w-60vw">
+    <div class="hero-section__headline-grid">
+      <div class="hero-section__left grid gap-1 place-items-center">
+        <div class="space-y-2 h-fit p-6 rounded-3xl border border-box-border bg-box-bg/80 shadow-box-shadow hero-section__headline-grid__text">
+          <Text class="flex items-center text-lg font-bold md:text-4xl lg:text-4xl leading-tight">
+            Leave your customers in awe.
+          </Text>
+          <Text class="text-sm md:text-lg lg:text-xl leading-normal lg:leading-relaxed">
+            <b>Your brand is your reputation.  </b>It creates value for your business.  And it needs careful attention. <br><b>We're web pros</b>, and we're here to electrify your brand.
+          </Text>
+        </div>
+        <div class="ctabutton margin-bottom-5px">
+          <CTAButton  variant={"primary"} navigateTo={"./contact-us"} >
+            <span class="ext-gray-900 dark:text-white relative mb-5 z-[5]">Get In Touch</span>
+          </CTAButton>
+        </div>
+      </div>
+        <img
+          class="hero-section__headline-image"
+          src={"/images/hero/hero-lady.webp"}
+          alt={"a lady who is SHOCKED that the website is so nice"}
+          style="width: 100%; height: 100%; object-fit: contain; max-height: 250px;"
+        />
+      </div>
+  </div>
+</container>
 
-      <CTAButton variant={"primary"} navigateTo={"./contact-us"}>
-        <span class="bolder"> Reach Out</span>
-        <svg
-          width="182"
-          height="15"
-          viewBox="0 0 182 31"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 13.1455H94.3871L106 5L121.5 26L143.419 5L150.645 13.1455C180.581 13.1455 180.761 13.1455 182 13.1455"
-            stroke="#F08D27"
-            stroke-width="3"></path>
-        </svg>
-      </CTAButton>
-    </div>
-  </Container>
-</section>
 
-<style>
-  .hero_title {
+
+
+<style> 
+.hero-section{
+  width: 100%;
+  padding-top: 20vh;
+  min-height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-top: var(--header-height);
+  background-image: url("/images/hero/wave.svg");
+  background-size: cover;
+
+}
+.hero-section__headline{
+  display: flex;
+  align-self: center;
+}
+
+.hero-section__headline-grid{
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+.hero-section__headline-grid__text{
+  width: 235px;
+  @media (min-width: 768px) {
+    width: 305px;
   }
-  .hero_layout {
-    --hero_grid_layout: "logo mainTitle subTitle callActions";
-    display: grid;
-    grid-template-areas: var(--hero_grid_layout);
-    height: 85vh;
+  @media (min-width: 1024px) {
+    width: 580px;
   }
-  @media screen and (min-width: 640px) {
-    /* tablet  */
-    .hero_layout {
-      --hero_grid_layout: "logo mainTitle subTitle callActions";
-    }
+  @@media (min-width: 1280px) {
+    width: 580px;
   }
-  @media screen and (min-width: 1024px) {
-    /* laptop */
-    .hero_layout {
-      --hero_grid_layout: "logo mainTitle subTitle callActions";
-    }
+  @media (min-width: 1536px) {
+    width: 580px;
   }
-  @media screen and (min-width: 1280px) {
-    /* desktop */
-    .hero_layout {
-      --hero_grid_layout: "logo mainTitle subTitle callActions";
-    }
+}
+
+.hero-section__headline-image{
+  min-width: 200px;
+  @media (max-width: 410px) {
+  width: 120px;
   }
+}
+
+.ctabutton{
+  margin-bottom: 5px;
+}
+
 </style>

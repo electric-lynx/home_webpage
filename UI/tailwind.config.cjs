@@ -16,6 +16,12 @@ module.exports = {
 				"sub-background": "rgb(var(--sub-background))",
 				"elynx-orange": "#e57c29",
 			},
+			maxWidth: {
+				'50vw': '50vw',
+				'60vw': '60vw',
+				'70vw': '70vw',
+				'80vw': '80vw',
+			  },
 			screens: {
 				midmd: "880px"
 			}

@@ -9,7 +9,7 @@ import { routes } from "@routes/mainNavigation";
 const activeRoutes = routes.filter((route) => route.isActive);
 ---
 
-<header class="absolute inset-x-0 top-0 z-50 py-6">
+<header class="header absolute inset-x-0 top-0 z-50 py-6">
   <Container>
     <nav class="w-full flex justify-between gap-6 relative">
       <div class="min-w-max inline-flex relative">
@@ -80,3 +80,9 @@ const activeRoutes = routes.filter((route) => route.isActive);
     </nav>
   </Container>
 </header>
+
+<style>
+  .header{
+    min-height: var(--header-height);
+  }
+</style>

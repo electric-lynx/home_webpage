@@ -8,20 +8,15 @@ import { footerCompany } from "./data/links.js";
 ---
 
 <FooterContainer>
-  <Container className="pb-8 relative overflow-hidden pb-36 ">
-    <a href="#" class="relative flex md:w-1/4">
-      <div class="relative h-12 flex rounded-xl">
-        <LogoTitle size="sm" />
-      </div>
-    </a>
-
-    <div class="h-full">
-      <Paragraph className={"mt-8"}>
-        At Electric Lynx, our mission is to elevate your business reach and
-        streamline daily operations by deploying advanced technologies. We
-        specialize in optimizing your digital footprint to ensure a seamless and
-        efficient online experience, propelling your business towards greater
-        success.
+  <Container className="pb-8 relative overflow-hidden pb-36 flex flex-col ">
+    <div class="h-full justify-center">
+      <a href="#" class="relative4">
+        <div class="relative h-12 flex rounded-xl justify-center">
+          <LogoTitle size="sm" />
+        </div>
+      </a>
+      <Paragraph className={"mt-8 flex justify-center"}>
+        <i>Meow meow, zap zap.</i>
       </Paragraph>
       <div class="flex justify-center mt-4">
         <BtnLink
@@ -29,15 +24,6 @@ import { footerCompany } from "./data/links.js";
           text="hello@electriclynx.com"
           href="mailto:hello@electriclynx.com"
         />
-      </div>
-    </div>
-  </Container>
-  <Container>
-    <div
-      class="flex justify-between items-center gap-6 md:text-lg text-heading-3 mt-24 md:mt-0"
-    >
-      <div>
-        &copy; <span id="year"></span> Electric Lynx. All right reserved
       </div>
     </div>
   </Container>

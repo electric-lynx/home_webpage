@@ -37,11 +37,6 @@ const IconComponent = icons[icon] || HiGiftTop;
       <IconComponent size={24} />
     </IconContainer>
   </div>
-  <div class="call_to_action">
-    <Text tag="p">
-      starting: ${price}
-    </Text>
-  </div>
   <div class="title">
     <h2 class="h-10 md:text-xl font-semibold text-heading-2 mt-6 mb-4">
       {title}
@@ -64,7 +59,11 @@ const IconComponent = icons[icon] || HiGiftTop;
       })
     }
   </div>
-  <a class="text-heading-3 linkage" href="">Contact <ElectricLine /></a>
+  <div class="price">
+    <Text tag="h3">
+     <i>starting at ${price}</i>
+    </Text>
+  </div>
 </div>
 
 <style>
@@ -82,10 +81,10 @@ const IconComponent = icons[icon] || HiGiftTop;
     grid-template-rows: 50px 50px minmax(150px, 1fr) 25px;
     grid-template-columns: 50px repeat(2, minmax(0, 1fr));
     grid-template-areas:
-      "cardIcon cardTitle selectPrice"
+      "cardIcon cardTitle ."
       "description description  included "
       "description  description included"
-      "description  description linkage";
+      "description  description selectPrice";
   }
   @media screen and (max-width: 600px) {
     .packageCard_layout {
@@ -99,9 +98,9 @@ const IconComponent = icons[icon] || HiGiftTop;
     grid-area: cardIcon;
     justify-self: flex-start;
   }
-  .call_to_action {
+  .price {
     grid-area: selectPrice;
-    justify-self: flex-end;
+    justify-self: center;
     text-align: end;
   }
   .title {
