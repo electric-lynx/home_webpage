@@ -8,11 +8,10 @@ import { Text, CTAButton } from "@components/shared";
 ---
 
 <section id="cta">
-  <BubBackground>
+  <div class:list={["border rounded-2xl p-8 m-8 border-2", "customContaienr"]}>
     <div class="mx-auto text-center max-w-xl md:max-w-2xl relative">
       <Text tag="h3" class="text-3xl l bold mb-8 capitalize">
-        let's add some <span class="spicy">spice</span> to your digital
-        presence.
+        let's add some <span class="spicy">spice</span> to your digital presence.
       </Text>
       <Text tag="p">
         Our goal is to foucus what can we do digitaly to get you business, help
@@ -21,14 +20,21 @@ import { Text, CTAButton } from "@components/shared";
       </Text>
       <div class="mx-auto max-w-md sm:max-w-xl pt-10">
         <CTAButton variant={"primary"} navigateTo={"./contact-us"}>
-          <span class="text-gray-900 dark:text-white relative z-[5]">Get In Touch</span>
+          <span class="text-gray-900 dark:text-white relative z-[5]"
+            >Get In Touch</span
+          >
         </CTAButton>
       </div>
     </div>
-  </BubBackground>
+  </div>
 </section>
 
 <style>
+  .customContaienr {
+    border-color: var(--elynx-orange);
+    background-color: var(--elynx-orange-transparent);
+  }
+
   .spicy {
     transform: rotate(-1deg);
     color: #ffd9e2;
