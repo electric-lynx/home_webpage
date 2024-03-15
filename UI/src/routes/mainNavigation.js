@@ -14,7 +14,7 @@ export const routes = [
         isActive: true
     },
     {
-        href: "/about-us",
+        href: "#about-us",
         text: "About us",
         icon: HiUser,
         isActive: true

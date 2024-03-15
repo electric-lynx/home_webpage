@@ -5,7 +5,8 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				body: "rgb(var(--color-bg))",
+				body: "rgba(var(--color-bg))",
+				"body-a": "rgba(var(--color-bg-alpha))",
 				"box-bg": "rgb(var(--color-box))",
 				"box-shadow": "rgb(var(--box-sd))",
 				"box-border": "rgb(var(--box-border))",
@@ -21,7 +22,7 @@ module.exports = {
 				'60vw': '60vw',
 				'70vw': '70vw',
 				'80vw': '80vw',
-			  },
+			},
 			screens: {
 				midmd: "880px"
 			}

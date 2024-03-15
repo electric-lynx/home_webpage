@@ -10,7 +10,7 @@ let { variant = "primary", className, navigateTo } = Astro.props;
 const styles = {
   hover: "",
   active: "",
-  base: "text-heading-3 bg-sub-background",
+  base: "text-heading-3 bg-box-bg/80",
 };
 ---
 
@@ -38,9 +38,11 @@ const styles = {
     -webkit-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
     border-radius: 50px;
+    margin: 10px;
   }
   .button-1:hover {
-    background-color: transparent;
+    /* background-color: transparent; */
+    transform: scale(1.1);
     font-weight: 400;
     border: 1px solid #e57c29;
     transition: all 0.15s ease-in-out;

@@ -37,56 +37,73 @@ const { title } = Astro.props;
   <body class="overflow-hidden overflow-y-auto bg-body">
     <ChakraProvider>
       <Header />
-      <Navbar />
       <slot />
       <Footer />
     </ChakraProvider>
   </body>
 
   <script>
-    const switchTheme = document.querySelector(
-      "[data-switch-theme]"
-    ) as HTMLButtonElement;
+    // const switchTheme = document.querySelector(
+    //   "[data-switch-theme]"
+    // ) as HTMLButtonElement;
 
-    if (
-      localStorage.getItem("appTheme") === "dark" ||
-      (!("appTheme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    if (switchTheme) {
-      switchTheme.addEventListener("click", (e) => {
-        e.preventDefault();
-        const doc = document.documentElement;
-        if (doc) {
-          if (localStorage.getItem("appTheme")) {
-            if (localStorage.getItem("appTheme") === "light") {
-              doc.classList.add("dark");
-              localStorage.setItem("appTheme", "dark");
-            } else {
-              document.documentElement.classList.remove("dark");
-              localStorage.setItem("appTheme", "light");
-            }
-          } else {
-            if (doc.classList.contains("dark")) {
-              doc.classList.remove("dark");
-              localStorage.setItem("appTheme", "light");
-            } else {
-              doc.classList.add("dark");
-              localStorage.setItem("appTheme", "dark");
-            }
-          }
-        }
-      });
-    }
+    // if (
+    //   localStorage.getItem("appTheme") === "dark" ||
+    //   (!("appTheme" in localStorage) &&
+    //     window.matchMedia("(prefers-color-scheme: dark)").matches)
+    // ) {
+    //   document.documentElement.classList.add("dark");
+    // } else {
+    //   document.documentElement.classList.remove("dark");
+    // }
+    // if (switchTheme) {
+    //   switchTheme.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     const doc = document.documentElement;
+    //     if (doc) {
+    //       if (localStorage.getItem("appTheme")) {
+    //         if (localStorage.getItem("appTheme") === "light") {
+    //           doc.classList.add("dark");
+    //           localStorage.setItem("appTheme", "dark");
+    //         } else {
+    //           document.documentElement.classList.remove("dark");
+    //           localStorage.setItem("appTheme", "light");
+    //         }
+    //       } else {
+    //         if (doc.classList.contains("dark")) {
+    //           doc.classList.remove("dark");
+    //           localStorage.setItem("appTheme", "light");
+    //         } else {
+    //           doc.classList.add("dark");
+    //           localStorage.setItem("appTheme", "dark");
+    //         }
+    //       }
+    //     }
+    //   });
+    // }
   </script>
 </html>
 <style is:global>
   :root {
+    --color-bg: 3 7 18;
+    --color-bg-alpha: 3 7 18 /0.8;
+    --color-box: 17 24 39;
+    --box-border: 243 244 246/0.1;
+    --box-sd: transparent;
+    --heading-1: 255 255 255;
+    --heading-2: 243 244 246;
+    --heading-3: 209 213 219;
+    --sub-background: 20 24 34;
+
+    --elynx-orange: #e57c29;
+    --elynx-orange-transparent: #e57c290f;
+
+    --header-height: 10vh;
+  }
+
+  .light {
     --color-bg: 255 255 255;
+    --color-bg-alpha: 255 255 255 /0.8;
     --color-border: 255 255 255;
     --color-box: 255 255 255;
     --box-border: 229 231 235;
@@ -95,22 +112,6 @@ const { title } = Astro.props;
     --heading-2: 31 41 55;
     --heading-3: 55 65 81;
     --sub-background: 208 208 210;
-
-    --elynx-orange: #e57c29;
-    --elynx-orange-transparent: #e57c290f;
-
-    --header-height: 10vh;
-  }
-
-  .dark {
-    --color-bg: 3 7 18;
-    --color-box: 17 24 39;
-    --box-border: 243 244 246/0.1;
-    --box-sd: transparent;
-    --heading-1: 255 255 255;
-    --heading-2: 243 244 246;
-    --heading-3: 209 213 219;
-    --sub-background: 20 24 34;
   }
 
   html {
