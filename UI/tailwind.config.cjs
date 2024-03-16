@@ -15,7 +15,7 @@ module.exports = {
 				"heading-2": "rgb(var(--heading-2))",
 				"heading-3": "rgb(var(--heading-3))",
 				"sub-background": "rgb(var(--sub-background))",
-				"elynx-orange": "#e57c29",
+				"elynx-orange": "var(--elynx-orange)"
 			},
 			maxWidth: {
 				'50vw': '50vw',
