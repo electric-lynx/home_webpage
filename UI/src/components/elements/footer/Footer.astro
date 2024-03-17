@@ -1,0 +1,30 @@
+---
+import GroupFooterNav from "../../blocks/GroupFooterNav.astro";
+import { Container, Paragraph, BtnLink } from "@components/shared";
+import { LogoTitle } from "@components/blocks";
+
+import FooterContainer from "./components/FooterContainer.astro";
+import { footerCompany } from "./data/links.js";
+---
+
+<FooterContainer>
+  <Container className="pb-8 relative overflow-hidden pb-36 flex flex-col ">
+    <div class="h-full justify-center">
+      <a href="#" class="relative4">
+        <div class="relative h-12 flex rounded-xl justify-center">
+          <LogoTitle size="sm" />
+        </div>
+      </a>
+      <Paragraph className={"mt-8 flex justify-center"}>
+        <i>Meow meow, zap zap.</i>
+      </Paragraph>
+      <div class="flex justify-center mt-4">
+        <BtnLink
+          variant="secondary"
+          text="hello@electriclynx.com"
+          href="mailto:hello@electriclynx.com"
+        />
+      </div>
+    </div>
+  </Container>
+</FooterContainer>

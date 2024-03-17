@@ -1,0 +1,89 @@
+---
+import { Text, CTAButton } from "@components/shared";
+---
+
+<container class="hero-section">
+  <div class="hero-section__headline-grid lg:w-10/12">
+    <div class="space-y-2 h-fit p-6 hero-section__headline-text">
+      <Text
+        class="text-center text-5xl font-bold md:text-6xl lg:text-7xl leading-tight"
+      >
+        Leave your customers in awe.
+      </Text>
+    </div>
+
+    <div
+      class="hero-section__headline-ctabutton margin-bottom-5px flex flex-col justify-self-center justify-center items-center"
+    >
+      <Text
+        class="md:w-10/12 w-8/12 text-2xl leading-normal lg:leading-relaxed my-8 mx-4 text-red"
+      >
+        <b>Your brand is your reputation.</b>It creates value for your business.
+        And it needs careful attention. <b>We're web pros</b>, and we're here to
+        electrify your brand.
+      </Text>
+      <div class:list={["mb-8 text-xl ", "buttonText"]}>
+        <CTAButton variant={"primary"} navigateTo={"./contact-us"}>
+          <span>Get In Touch</span>
+        </CTAButton>
+      </div>
+    </div>
+
+    <img
+      class="hero-section__headline-image"
+      src={"/images/hero/hero-lady.webp"}
+      alt={"a lady who is SHOCKED that the website is so nice"}
+      style="width: 100%; height: 100%; object-fit: contain;"
+    />
+  </div>
+</container>
+
+<style>
+  .hero-section {
+    width: 100%;
+    min-height: 960px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    background-image: url("/images/hero/wave-flip.svg");
+    background-size: cover;
+  }
+  .hero-section__headline {
+    display: flex;
+    align-self: center;
+  }
+
+  .hero-section__headline-grid {
+    display: grid;
+    margin-top: var(--header-height);
+    grid-template-rows: 190px 420px;
+    grid-template-columns: 1.5fr 1fr;
+
+    grid-template-areas: "maintxt maintxt" "CTA pic";
+  }
+  .hero-section__headline-text {
+    grid-area: maintxt;
+    align-self: center;
+    --heading-3: 17 24 39;
+  }
+
+  .hero-section__headline-image {
+    grid-area: pic;
+  }
+
+  .hero-section__headline-ctabutton {
+    --heading-3: 17 24 39;
+    grid-area: CTA;
+  }
+  .buttonText {
+    --heading-3: 243 244 246;
+  }
+  @media (max-width: 768px) {
+    .hero-section__headline-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: 280px 250px 1fr;
+      grid-template-areas: "maintxt" "pic" "CTA";
+    }
+  }
+</style>

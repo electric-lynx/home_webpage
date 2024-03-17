@@ -1,0 +1,24 @@
+---
+import { teamProfile } from "./data";
+
+import { Text, Container } from "@components/shared";
+import { TeamBios } from "@components/blocks";
+
+const { subtitle } = Astro.props;
+---
+
+<section id="about-us" class="relative">
+  <Container className=" flex flex-col md:flex-row gap-10 lg:gap-12">
+    <div class="flex-1 flex md:w-7/12 lg:w-1/2 flex-col">
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-8">
+        <Text tag="h2">the Lynx team</Text>
+        <Text tag="p">
+          Two man team dedicated to improving your business & your brand.
+        </Text>
+      </div>
+      <TeamBios />
+    </div>
+  </Container>
+
+  <style></style>
+</section>

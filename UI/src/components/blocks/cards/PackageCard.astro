@@ -1,0 +1,121 @@
+---
+import {
+  HiGiftTop,
+  HiFingerPrint,
+  HiMiniFilm,
+  HiComputerDesktop,
+  HiCircleStack,
+} from "react-icons/hi2";
+import { ElectricLine } from "@components/svgs";
+import { Text } from "@components/shared";
+import IconContainer from "./components/IconContainer.astro";
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  included: Array<string>;
+  price: string;
+  styling?: string;
+}
+
+const icons: Record<string, IconType> = {
+  fingerprint: HiFingerPrint,
+  camera: HiMiniFilm,
+  desktop: HiComputerDesktop,
+  circlestack: HiCircleStack,
+};
+
+const { icon, title, description, included, price } = Astro.props;
+
+const IconComponent = icons[icon] || HiGiftTop;
+---
+
+<div class="packageCard_layout card-container min-h-full p-5 sm:p-6 lg:p-8">
+  <div class="card_icon">
+    <IconContainer>
+      <IconComponent size={24} />
+    </IconContainer>
+  </div>
+  <div class="title">
+    <h2 class="h-10 md:text-xl font-semibold text-heading-2 mt-6 mb-4">
+      {title}
+    </h2>
+  </div>
+  <div class="description">
+    <Text tag="p">
+      {description}
+    </Text>
+  </div>
+
+  <div class="includes">
+    <Text tag="h3">what included</Text>
+    <div class="hrLine border-solid"></div>
+    {
+      included.map((item) => {
+        return (
+          <li class="text-mlist-disc list-inside lg:text-sm text-heading-3 dark:text-white">{`${item}`}</li>
+        );
+      })
+    }
+  </div>
+  <div class="price">
+    <Text tag="h3">
+      <i>starting at ${price}</i>
+    </Text>
+  </div>
+</div>
+
+<style>
+  .hrLine {
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .includes {
+    grid-area: included;
+    justify-self: center;
+    align-self: center;
+  }
+  .packageCard_layout {
+    display: grid;
+    grid-template-rows: 50px 50px minmax(150px, 1fr) 25px;
+    grid-template-columns: 50px repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "cardIcon cardTitle ."
+      "description description  included "
+      "description  description included"
+      "description  description selectPrice";
+  }
+  @media screen and (max-width: 600px) {
+    .packageCard_layout {
+      grid-template-areas: "cardIcon cardTitle" "description description" "included included" "selectPrice selectPrice";
+      grid-template-columns: 50px 1fr;
+      grid-template-rows: 50px repeat(2, 1fr) 50px;
+    }
+  }
+
+  .card_icon {
+    grid-area: cardIcon;
+    justify-self: flex-start;
+  }
+  .price {
+    grid-area: selectPrice;
+    justify-self: center;
+    text-align: end;
+  }
+  .title {
+    grid-area: cardTitle;
+    align-self: center;
+  }
+  .description {
+    grid-area: description;
+    align-self: center;
+  }
+
+  .linkage {
+    grid-area: linkage;
+
+    justify-self: flex-end;
+    text-align: center;
+  }
+</style>

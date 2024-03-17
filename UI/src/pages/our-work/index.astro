@@ -1,0 +1,39 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import { ClientProfile } from "@components/sections";
+
+import { Container, Text } from "@components/shared";
+
+const ourPublishedWork = await getCollection("clients_writeup", ({ data }) => {
+  return data.isPublish === true;
+});
+---
+
+<Layout title="Custom Website Agency">
+  <main class="flex flex-col gap-y-20 md:gap-y-20 overflow-hidden">
+    {
+      ourPublishedWork.length > 0 ? (
+        <ClientProfile works={ourPublishedWork} />
+      ) : (
+        <div class="dead_center">
+          <Text tag="h2">We are getting things together check back later</Text>
+          <Text>// go home // request more</Text>
+        </div>
+      )
+    }
+  </main>
+</Layout>
+
+<style>
+  .dead_center {
+    display: grid;
+    place-items: center;
+    height: 550px;
+  }
+  section {
+    margin-top: 150px;
+    margin-bottom: 150px;
+    min-height: 50vh;
+  }
+</style>

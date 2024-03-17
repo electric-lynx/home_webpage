@@ -1,0 +1,48 @@
+---
+export interface ImageData {
+  source: string;
+  alt: string;
+}
+interface Props {
+  imagesSelections: ImageData[];
+}
+const { imagesSelections } = Astro.props;
+---
+
+<div
+  class:list={["main_profile_images", "top-section relative overflow-hidden"]}
+>
+  <img
+    src={imagesSelections[0].source}
+    alt={imagesSelections[0].alt}
+    height="400px"
+    width="400px"
+    class="primary-image object-cover rounded"
+  />
+  <img
+    src={imagesSelections[1].source}
+    alt={imagesSelections[1].alt}
+    height="400px"
+    width="400px"
+    class="secondary-image object-cover absolute top-0 left-0 rounded"
+  />
+</div>
+
+<style>
+  .main_profile_images {
+    grid-area: "image";
+  }
+  .secondary-image {
+    transition: opacity 0.3s ease;
+  }
+
+  .secondary-image:hover {
+    opacity: 0;
+  }
+
+  .top-section {
+    width: fit-content;
+    max-width: 213px;
+    max-height: 213px;
+  }
+</style>

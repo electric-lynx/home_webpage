@@ -1,0 +1,96 @@
+---
+import type { ClientMarkdownFrontMatter } from "@tsTypes/index";
+import { Container, Text, ALink } from "@components/shared";
+import { ElectricLine } from "@components/svgs";
+
+import { ImagesContainer } from "./component";
+
+interface Props {
+  clientDetails: ClientMarkdownFrontMatter;
+  slug: string;
+}
+
+const { clientDetails, slug } = Astro.props;
+---
+
+<div class="card card_layout">
+  <div class="title_container">
+    <Text tag="h3" class="custom_title">{clientDetails.title}</Text>
+  </div>
+
+  <div class="profileImage">
+    <ImagesContainer
+      profile_image={clientDetails.profile_image}
+      secondary_image={clientDetails.secondary_image}
+    />
+  </div>
+
+  <div class="client_rundown flex flex-col justify-between gap-2 mx-8">
+    <Text>{clientDetails.client}</Text>
+
+    <Text>{clientDetails.location}</Text>
+    <Text tag="p">{clientDetails.date}</Text>
+  </div>
+
+  <div class="description">
+    <Text tag="p">{clientDetails.description}</Text>
+
+    <ALink class="position_internal_Layout" linkPath=`./our-work/${slug}`>
+      <Text tag="p">Full Details</Text>
+    </ALink>
+
+    <ALink
+      class="position_internal_Layout"
+      linkPath={clientDetails.client_url}
+      isExternal={true}
+    >
+      <Text tag="p">{clientDetails.client_url}</Text>
+    </ALink>
+  </div>
+
+  <style>
+    .position_internal_Layout {
+      justify-self: end;
+    }
+    .card_layout {
+      display: grid;
+      grid-template-columns: 350px 1fr 175px;
+      grid-template-rows: 50px minmax(250px, 1fr);
+      grid-template-areas:
+        "title title title"
+        "img1 description  client_rundown ";
+      /* border-bottom: 2px solid var(--elynx-orange); */
+    }
+    .title_container {
+      grid-area: title;
+    }
+    .custom_title {
+      font-size: 2em;
+    }
+    .profileImage {
+      grid-area: img1;
+    }
+
+    .description {
+      grid-area: description;
+      padding: 10%;
+      display: grid;
+      grid-template-rows: minmax(70px, 1fr) 50px 122px;
+    }
+    .client_rundown {
+      grid-area: client_rundown;
+    }
+    .el_stuff {
+      grid-area: el_stuff;
+      align-self: end;
+    }
+
+    .card {
+      /* background-color: rgba(240, 248, 255, 0.267); */
+      padding: 10px;
+      margin: 20px;
+      height: 550px;
+      margin-bottom: 120px;
+    }
+  </style>
+</div>

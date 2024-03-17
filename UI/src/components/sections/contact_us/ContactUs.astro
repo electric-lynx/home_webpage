@@ -1,0 +1,31 @@
+---
+import { Container } from "@components/shared/";
+import Paragraph from "@components/shared/Paragraph.astro";
+import Title from "@components/shared/Title.astro";
+import { FormNetlify } from "@components/blocks/";
+---
+
+<section id="contact" class="min:h-80 mb-12">
+  <Container className="flex w-7/12 items-center flex-col justify-center">
+    <div class="w-3/4">
+      <Title>Contact Us</Title>
+      <Paragraph className="mt-8">
+        Let's get in touch. (no pressure, no sales pitch, just value)
+        <br />
+        What's past, what's your future vision, what are your hopes and dreams for
+        <b>[Insert Company X]</b>?
+        <br />
+      </Paragraph>
+
+      <Paragraph className="mt-8">
+        We'll have a phone call to discuss your project, determine if we're a
+        good fit, and provide an absolutely-free strategic discussion of your
+        website and advice for your company's future (no need to work with us to
+        use the advice!).
+      </Paragraph>
+    </div>
+    <div class="lg:w-2/4 w-full">
+      <FormNetlify />
+    </div>
+  </Container>
+</section>

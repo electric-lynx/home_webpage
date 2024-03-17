@@ -1,0 +1,58 @@
+{
+  "packages": [
+    {
+      "icon": "fingerprint",
+      "title": "L3: Brand Buildout",
+      "description": "A strong brand builds continuity between your product or service, your locations, your social media and your website.",
+      "included": [
+        "custom logo",
+        "audio logo",
+        "custom color pallette",
+        "open-source fonts",
+        "social media profiles",
+        "brand identity writeup"
+      ],
+      "price": "500"
+    },
+    {
+      "icon": "camera",
+      "title": "L2: Content + Creative",
+      "description": "We don't do stock photos. We don't do stock text. Let us make your website pop with custom creative based on your brand feel & voice.",
+      "included": [
+        "AI-generated pictures",
+        "human-generated copy",
+        "SEO-optimized"
+      ],
+      "price": "500"
+    },
+    {
+      "status": "available",
+      "icon": "desktop",
+      "title": "Web Presence",
+      "description": "Your website is a canvas for your brand image and a tool for your business growth. It's the first place prospects land after a Google Search, and the first impression a customer gets after seeing an Ad. We customize and hand-craft each website, and take pride in each project we add to our portfolio.",
+      "included": [
+        "Personal domain name",
+        "Website email",
+        "1 year domain registration",
+        "Custom web design",
+        "Core Web Vitals",
+        "SEO optimization"
+      ],
+      "price": "1000"
+    },
+    {
+      "icon": "circlestack",
+      "title": "L4: Full Web Business",
+      "description": "Our highest-value standard package brings our full digital skills to your business, crafting custom and complete solutions to minimize your time and maximize your bottom line.",
+      "included": [
+        "branding package",
+        "creative package",
+        "web presence",
+        "strategy guide",
+        "1 year maintenance"
+      ],
+      "price": "2000",
+      "styling": "premium"
+    }
+  ]
+}

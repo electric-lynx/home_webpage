@@ -1,0 +1,12 @@
+---
+const { frontmatter, url } = Astro.props;
+---
+
+<head>
+  <!-- Add other Head elements here, like styles and meta tags. -->
+  <!-- <link rel="canonical" href={new URL(url, Astro.site).pathname} /> -->
+  <title>{frontmatter.title}</title>
+</head>
+<div>
+  <slot />
+</div>

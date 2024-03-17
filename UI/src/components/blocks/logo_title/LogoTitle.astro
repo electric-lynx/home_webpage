@@ -1,0 +1,46 @@
+---
+// TODO add types
+// URL: http://localhost:4321/comps/#logo
+
+import { TitleLineSVG, LogoHead } from "@components/svgs";
+import { Text } from "@components/shared";
+const { variant, size } = Astro.props;
+
+const logoSettings = (logoSize: string) => {
+  if (logoSize === "sm") {
+    return {
+      fontClasses: "text-4xl",
+      iconSize: 50,
+      lineSvg: { w: 230, h: 25 },
+    };
+  }
+  return "";
+};
+
+// variant display parts of logo,
+const varientComponents = () => {
+  if (variant) {
+    return ["icon", "text"].filter((type) => type === variant);
+  } else return ["icon", "text"];
+};
+// const varientComponents = compilevarietn;
+const desiredStyles = logoSettings(size);
+---
+
+<div class="flex flex-row gap-2">
+  {
+    varientComponents().includes("icon") ? (
+      <LogoHead sizeSq={desiredStyles.iconSize} />
+    ) : null
+  }
+  {
+    varientComponents().includes("text") ? (
+      <div>
+        <Text tag="h1" class={desiredStyles.fontClasses}>
+          Electric Lynx
+        </Text>
+        <TitleLineSVG sizeLxW={desiredStyles.lineSvg} />
+      </div>
+    ) : null
+  }
+</div>

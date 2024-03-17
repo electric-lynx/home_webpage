@@ -1,0 +1,64 @@
+---
+import {
+  HiPuzzle,
+  HiOutlineSearch,
+  HiOutlineDeviceMobile,
+  HiOutlineShieldExclamation,
+  HiCubeTransparent,
+  HiCursorClick,
+} from "react-icons/hi";
+import { IconType } from "react-icons";
+
+import { Text } from "@components/shared";
+import IconContainer from "./components/IconContainer.astro";
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const icons: Record<string, IconType> = {
+  puzzle: HiPuzzle,
+  magnifyingglass: HiOutlineSearch,
+  mobilephone: HiOutlineDeviceMobile,
+  securityshield: HiOutlineShieldExclamation,
+  transparentcube: HiCubeTransparent,
+};
+
+const { icon, title, description, included, price } = Astro.props;
+
+const IconComponent = icons[icon] || HiCursorClick;
+---
+
+<div
+  class="custom_layout rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow"
+>
+  <IconContainer>
+    <slot name="card_icon" />
+  </IconContainer>
+
+  <div class="title flex justify-center items-center mr-20">
+    <slot name="card_title" />
+  </div>
+  <slot />
+</div>
+<style>
+  .custom_layout {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    grid-template-rows: 55px 1fr;
+    grid-template-areas:
+      "cardIcon cardTitle"
+      "description description";
+  }
+  .card_icon {
+    grid-area: cardIcon;
+  }
+  .title {
+    grid-area: cardTitle;
+  }
+  .description {
+    grid-area: description;
+  }
+</style>

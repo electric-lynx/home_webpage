@@ -1,0 +1,41 @@
+---
+export interface Props {
+  tag?: string;
+  class?: string;
+  Cssvars?: {};
+}
+interface StyleBank {
+  [key: string]: string;
+  h1: string;
+  sub: string;
+  p: string;
+}
+
+// todo UDPATE
+const { tag, Cssvars = {}, class: className, ...rest } = Astro.props;
+
+let Elements = tag || "div";
+
+const styleBank: StyleBank = {
+  h1: "font-black text-4xl lg:text-6xl",
+  h2: "text-heading-1 font-semibold text-2xl sm:text-3xl md:text-4xl",
+  h3: "text-lg md:text-xl font-semibold text-heading-2",
+  h4: "text-m md:text-lg font-semibold text-heading-2",
+  sub: "font-bold text-xl lg:text-2xl",
+  p: "md:text-lg",
+};
+
+function cssClasses() {
+  return !className ? styleBank?.[tag] : "";
+}
+---
+
+<Elements class:list={[`text-heading-3`, cssClasses(), className]} {...rest}>
+  <slot />
+</Elements>
+
+<style define:vars={Cssvars}>
+  h1 {
+    font-family: "Red Hat Display", sans-serif;
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+// interface StringArray {
+//   [index: string]: string;
+// }
+
+interface Props {
+  varient: string;
+  title: string;
+  navItems: {
+    itemText: string;
+    itemLink: string;
+  }[];
+}
+interface StyleElement {
+  [key: string]: string;
+}
+
+const { title, navItems, varient } = Astro.props;
+
+const styleElement: StyleElement = {
+  columns: "flex flex-col",
+  singleRow: "flex flex-row",
+};
+
+const listStyleVarient = styleElement?.[varient];
+---
+
+<nav class="space-y-6">
+  <h2 class="capitalze font-semibold text-heading-1 text-xl">
+    {title}
+  </h2>
+  <ul class:list={["font-medium md:text-lg text-heading-3", listStyleVarient]}>
+    {
+      navItems.map((navItem) => (
+        <li class="flex content-start">
+          <a href={navItem.itemLink} class="transition hover:text-primary">
+            {navItem.itemText}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

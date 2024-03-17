@@ -1,0 +1,22 @@
+---
+import Layout from "@layouts/Layout.astro";
+import {
+  Hero,
+  ContactUs,
+  LynxTeam,
+  ProvidedServices,
+  CTA,
+  CostOfServices,
+} from "@components/sections/";
+---
+
+<Layout title="Custom Website Agency">
+  <main class="flex flex-col gap-y-20 md:gap-y-20 overflow-hidden">
+    <Hero />
+    <ProvidedServices />
+    <CostOfServices />
+    <CTA />
+    <LynxTeam />
+    <ContactUs />
+  </main>
+</Layout>

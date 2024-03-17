@@ -1,0 +1,85 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Text, sec } from "@components/shared";
+import {} from "@components/blocks";
+---
+
+<Layout title="Electric Lynx ">
+  <main class="flex flex-col gap-20 min-h-screen pt-40 px-20 mb-40">
+    <div class="process_item">
+      <Text tag="h3">0. Initial contact</Text>
+      <Text tag="p">
+        Some one reached out and contacted us, we should have a base idea of
+        what is needed for website
+      </Text>
+      <aside>
+        <Text tag="h4">What happens</Text>
+
+        <ul>
+          <li>Market research on other simular businesses</li>
+          <li>Come up with a plan for the clients website</li>
+          <li>Agreed quote on quote and scope of project</li>
+        </ul>
+      </aside>
+    </div>
+    <div class="process_item">
+      <Text tag="h3">1. Obtain /Compiling website data</Text>
+      <Text tag="p">
+        Agree on pricing and set scope of the website. Start compiling the
+        assets and information to complete the project.
+      </Text>
+
+      <aside>
+        <Text tag="h4">Thing Reqired to obtain</Text>
+
+        <ul>
+          <li>
+            General Idea on copy/what the website will need to convey in word
+            form
+          </li>
+          <li>
+            Good Idea on what the branding / colors and feeling for the webiste
+          </li>
+          <li>Domain locked down and website</li>
+        </ul>
+      </aside>
+    </div>
+    <div class="process_item">
+      <Text tag="h3">2. Initial Draft</Text>
+      <Text tag="p">
+        The Team will have meeting and brainstorm session to find the best
+        option for the client.
+      </Text>
+      <aside>
+        <Text tag="h4">Twhat to expect</Text>
+
+        <ul>
+          <li>The team will have a basic idea for layout</li>
+          <li>
+            Plan of exicution, what tech and other resources that will be uesed
+          </li>
+          <li>Design process and fininal disisiaons on design</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .process_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    aside {
+      background-color: rgb(146, 142, 142);
+      padding: 5px;
+      color: rgb(243, 235, 235);
+      li {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        list-style: circle;
+      }
+    }
+  }
+</style>

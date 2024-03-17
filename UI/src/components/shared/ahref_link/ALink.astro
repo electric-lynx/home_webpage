@@ -1,0 +1,44 @@
+---
+import { HiExternalLink } from "react-icons/hi";
+
+interface Props {
+  linkPath: string;
+  class?: string;
+  isExternal?: boolean;
+  children: any;
+}
+const { linkPath, isExternal, class: className, ...rest } = Astro.props;
+---
+
+<a
+  target={isExternal ? "_blank" : null}
+  rel={isExternal ? "noopener noreferrer" : null}
+  class:list={[className, "internal_link"]}
+  {...rest}
+  href={linkPath}
+>
+  <slot />
+
+  {
+    isExternal ? (
+      <span class="icon_space text-heading-1 ">
+        <HiExternalLink />
+      </span>
+    ) : null
+  }
+</a>
+<style>
+  .internal_link {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-weight: 900;
+  }
+
+  .internal_link:hover {
+    text-decoration: underline;
+  }
+  .icon_space {
+    margin: 0px 5px;
+  }
+</style>

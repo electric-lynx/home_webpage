@@ -1,0 +1,58 @@
+---
+interface Props {
+  className?: string;
+  variant: "primary" | "secondary" | "form";
+  navigateTo?: string;
+}
+
+let { variant = "primary", className, navigateTo } = Astro.props;
+
+const styles = {
+  hover: "",
+  active: "",
+  base: "text-heading-3 bg-box-bg/80",
+};
+---
+
+<a href={navigateTo}>
+  <button class:list={[className, "button-1", styles.base]}>
+    <slot />
+    <svg
+      width="182"
+      height="15"
+      viewBox="0 0 182 31"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 13.1455H94.3871L106 5L121.5 26L143.419 5L150.645 13.1455C180.581 13.1455 180.761 13.1455 182 13.1455"
+        stroke="#F08D27"
+        stroke-width="3"></path>
+    </svg>
+  </button>
+</a>
+<style>
+  .button-1 {
+    border: 2px solid transparent;
+    padding: 10px 0px;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    border-radius: 50px;
+    margin: 10px;
+  }
+  .button-1:hover {
+    /* background-color: transparent; */
+    transform: scale(1.1);
+    font-weight: 400;
+    border: 1px solid #e57c29;
+    transition: all 0.15s ease-in-out;
+    box-shadow:
+      0 0 2px 0 #e57c29 inset,
+      0 0 10px 2px #e57c29;
+    border: 2px solid #e57c29;
+  }
+  .button-1:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+</style>

@@ -1,0 +1,83 @@
+---
+import type { ClientMarkdownImages } from "@tsTypes/ClientsContent";
+
+interface Props {
+  profile_image: ClientMarkdownImages;
+  secondary_image?: ClientMarkdownImages;
+}
+
+const { profile_image, secondary_image } = Astro.props;
+---
+
+<div class="image_positions">
+  <div class="style_circle"></div>
+
+  {
+    secondary_image ? (
+      <img
+        class="scondary_img"
+        src={secondary_image.source}
+        alt={secondary_image.alt}
+        height="150px"
+        width="250px"
+      />
+    ) : null
+  }
+  <img
+    class="main_img"
+    src={profile_image.source}
+    alt={profile_image.alt}
+    height="150px"
+    width="300px"
+  />
+</div>
+<style>
+  .image_positions {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  img {
+    position: absolute;
+    top: 50%;
+    translate-y: 75px;
+    left: 15%;
+    transform: skew(-2deg, -5deg);
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    filter: blur(0-px);
+  }
+  .scondary_img {
+    z-index: 0;
+    top: 45%;
+    left: 10%;
+  }
+  .main_img {
+    z-index: 10;
+    /* top: 100px; */
+  }
+  img:hover {
+    z-index: 11;
+    transform: skew(0deg, 0deg) scale(1.3);
+    transition: all 300ms ease-in-out;
+  }
+  .style_circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: rgb(2, 0, 36);
+    filter: blur(8px);
+    background: radial-gradient(
+      circle,
+      #5a58582f 0%,
+      rgb(var(--color-bg)) 100%
+    );
+  }
+  .scondary_img:hover {
+    display: none;
+  }
+</style>

@@ -1,0 +1,139 @@
+---
+import type { ImageData } from "@tsTypes/index";
+
+import Button from "@components/shared/Button.astro";
+import { Text, ProfileImages } from "@components/shared";
+import { ElectricLine } from "@components/svgs";
+
+interface Props {
+  varient?: string;
+  teamName: string;
+  contact?: string;
+  description: string;
+  primaryPicture: ImageData;
+  secondaryPicture: ImageData;
+  portfolioLink: string;
+  visualSetting: string[];
+}
+
+const {
+  varient,
+  contact,
+  teamName,
+  description,
+  primaryPicture,
+  secondaryPicture,
+  portfolioLink,
+  visualSetting,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    varient === "full" && "full_page_card_layout ",
+    varient !== "full" && "default_card_layout ",
+
+    "card-container m-12",
+  ]}
+>
+  <div class="profile_images">
+    <ProfileImages imagesSelections={[primaryPicture, secondaryPicture]} />
+  </div>
+
+  <div class="profile_name">
+    <Text tag="h3">
+      <span class="whitespace-nowrap">
+        {teamName}
+      </span>
+    </Text>
+  </div>
+  {
+    visualSetting.includes("description") && (
+      <div class="profile_description">
+        <Text tag="p">{description}</Text>
+      </div>
+    )
+  }
+  {
+    visualSetting.includes("profileURL") && (
+      <div class="mt-4 flex flex-col items-end text-heading-3">
+        <a href={portfolioLink}>
+          <span class="flex flex-col justify-center">
+            <b>{`${teamName.split(" ")[0]}'s Portfolio`}</b>
+            <ElectricLine w="120" h="20" />
+          </span>
+        </a>
+      </div>
+    )
+  }
+  {
+    visualSetting.includes("contact") && (
+      <div class="mt-4 flex flex-col text-heading-3">
+        <a href={`mailto:${contact}`}>
+          <span class="flex flex-col justify-center">
+            <b>{contact}</b>
+            <ElectricLine w="120" h="20" />
+          </span>
+        </a>
+      </div>
+    )
+  }
+</div>
+
+<style define:vars={{}}>
+  .full_page_card_layout {
+    grid-template-areas:
+      "image name name"
+      "image description description"
+      "image links1 link2";
+  }
+
+  .full_page_card_layout:nth-child(odd) {
+    grid-template-areas:
+      " name name image"
+      " description description image"
+      " links1 link2 image";
+  }
+  .default_card_layout {
+    grid-template-areas:
+      "image "
+      "name"
+      "description"
+      "links1 ";
+  }
+  .text-content_container {
+    max-width: var(--contentWidth);
+  }
+
+  .card-container {
+    gap: 20px;
+    display: grid;
+  }
+
+  .profile_description {
+    grid-area: description;
+  }
+
+  .profile_name {
+    grid-area: name;
+  }
+  .profile_images {
+    grid-area: image;
+  }
+  @media screen and (max-width: 640px) {
+    .full_page_card_layout {
+      grid-template-areas:
+        " image image "
+        " name name "
+        " description description "
+        " links1 link2 ";
+    }
+    .full_page_card_layout:nth-child(odd) {
+      grid-template-areas:
+        " image image "
+        " name name "
+        " description description "
+        " links1 link2 ";
+    }
+  }
+</style>
